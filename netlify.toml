@@ -1,3 +1,0 @@
-[build]
-  publish = "Casiguran-Website"
-  functions = "Casiguran-Website/netlify/functions"
