@@ -1,15 +1,49 @@
-export default async (req) => {
-  if (req.method !== "POST") {
-    return new Response("Method not allowed", { status: 405 });
+// netlify/functions/chat.js
+// Regular Netlify Function (CommonJS format)
+// I-lagay sa: netlify/functions/chat.js
+
+const SYSTEM_PROMPT = `Ikaw ay isang friendly AI travel guide para sa Casiguran, Aurora, Philippines.
+Ang pangalan mo ay "Casiguran AI Guide".
+Sumasagot ka tungkol sa:
+- Mga tourist spots: Casapsapan Beach, Tibu Tidal Pool, Bulawan Falls, Ontok Lighthouse, Gayusan Falls, Dianao Beach, Cuaresma Beach, Motiong Beach, Amro River, Nuestra Senora Dela Ermita Church
+- Paano pumunta sa Casiguran (mula Manila: 7-9 oras via Baler o Dingalan route)
+- Pinakamabuting panahon para bumisita (Nobyembre hanggang Mayo — dry season)
+- Mga aktibidad (swimming, snorkeling, trekking, camping, photography)
+- Budget tips at accommodation
+- Local culture, pagkain, at tradisyon
+Sumasagot ka sa Filipino o English depende sa tanong ng user.
+Laging maging masaya, helpful, at encouraging para bumisita sa Casiguran!
+Huwag sumagot ng mga hindi related sa Casiguran o travel.`;
+
+exports.handler = async function (event) {
+
+  // Only allow POST
+  if (event.httpMethod !== "POST") {
+    return {
+      statusCode: 405,
+      body: JSON.stringify({ error: "Method not allowed" }),
+    };
+  }
+
+  // CORS headers
+  const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Content-Type": "application/json",
+  };
+
+  // Handle CORS preflight
+  if (event.httpMethod === "OPTIONS") {
+    return { statusCode: 200, headers, body: "" };
   }
 
   try {
-    const { messages } = await req.json();
+    const { messages } = JSON.parse(event.body);
 
-    /* I-convert ang messages format para sa Gemini */
+    // Convert messages to Gemini format (last 10 messages only)
     const geminiMessages = messages.slice(-10).map(m => ({
       role: m.role === "assistant" ? "model" : "user",
-      parts: [{ text: m.content }]
+      parts: [{ text: m.content }],
     }));
 
     const response = await fetch(
@@ -19,26 +53,13 @@ export default async (req) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           system_instruction: {
-            parts: [{
-              text: `Ikaw ay isang friendly AI travel guide para sa Casiguran, Aurora, Philippines.
-Ang pangalan mo ay "Casiguran AI Guide".
-Sumasagot ka tungkol sa:
-- Mga tourist spots: Casapsapan Beach, Tibu Tidal Pool, Bulawan Falls, Ontok Lighthouse, Gayusan Falls, Dianao Beach, Cuaresma Beach, Motiong Beach, Amro River, Nuestra Señora Dela Ermita Church
-- Paano pumunta sa Casiguran (mula Manila: 7-9 oras via Baler o Dingalan route)
-- Pinakamabuting panahon para bumisita (Nobyembre hanggang Mayo — dry season)
-- Mga aktibidad (swimming, snorkeling, trekking, camping, photography)
-- Budget tips at accommodation
-- Local culture, pagkain, at tradisyon
-Sumasagot ka sa Filipino o English depende sa tanong ng user.
-Laging maging masaya, helpful, at encouraging para bumisita sa Casiguran!
-Huwag sumagot ng mga hindi related sa Casiguran o travel.`
-            }]
+            parts: [{ text: SYSTEM_PROMPT }],
           },
           contents: geminiMessages,
           generationConfig: {
-            maxOutputTokens: 1024,
+            maxOutputTokens: 600,
             temperature: 0.7,
-          }
+          },
         }),
       }
     );
@@ -49,20 +70,21 @@ Huwag sumagot ng mga hindi related sa Casiguran o travel.`
       throw new Error(data.error?.message || "Gemini API error");
     }
 
-    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text
-      || "Pasensya na, hindi ko naintindihan. Subukan ulit! 🙏";
+    const reply =
+      data.candidates?.[0]?.content?.parts?.[0]?.text ||
+      "Pasensya na, hindi ko naintindihan. Subukan ulit! 🙏";
 
-    return new Response(JSON.stringify({ reply }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
+    return {
+      statusCode: 200,
+      headers,
+      body: JSON.stringify({ reply }),
+    };
 
   } catch (err) {
-    return new Response(
-      JSON.stringify({ error: err.message }),
-      { status: 500, headers: { "Content-Type": "application/json" } }
-    );
+    return {
+      statusCode: 500,
+      headers,
+      body: JSON.stringify({ error: err.message }),
+    };
   }
 };
-
-export const config = { path: "/.netlify/functions/chat.js" };
