@@ -217,10 +217,6 @@ a.stat-pill:hover::after {
   .main-grid {
     grid-template-columns: 1fr;
   }
-
-  .map-card {
-    position: static;
-  }
 }
 
 /* ═══ MAP CARD ═══ */
@@ -233,6 +229,12 @@ a.stat-pill:hover::after {
   backdrop-filter: blur(8px);
   position: sticky;
   top: calc(var(--nav-h) + 20px);
+}
+
+@media (max-width: 960px) {
+  .map-card {
+    position: static;
+  }
 }
 
 .map-tabs {
