@@ -13,9 +13,6 @@ export default async (req) => {
     }));
 
     const response = await fetch(
-      /* FIXED: "gemini-2.0-flash" was shut down by Google on June 1, 2026 —
-         that's the main reason the AI Guide stopped replying. Using the
-         current stable model instead. */
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
       {
         method: "POST",

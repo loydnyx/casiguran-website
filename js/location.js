@@ -28,3 +28,16 @@ const fadeObs = new IntersectionObserver((entries) => {
   });
 }, { threshold: .1 });
 document.querySelectorAll(".fade-in").forEach(el => fadeObs.observe(el));
+
+/* HERO TRAIL VIDEO — SOUND TOGGLE */
+const heroVideo   = document.getElementById("heroTrailVideo");
+const soundToggle = document.getElementById("soundToggle");
+if (heroVideo && soundToggle) {
+  soundToggle.addEventListener("click", () => {
+    heroVideo.muted = !heroVideo.muted;
+    const isOn = !heroVideo.muted;
+    soundToggle.classList.toggle("on", isOn);
+    soundToggle.textContent = isOn ? "🔊" : "🔇";
+    soundToggle.setAttribute("aria-pressed", isOn ? "true" : "false");
+  });
+}
