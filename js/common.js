@@ -155,3 +155,62 @@ if ("serviceWorker" in navigator) {
       .catch(err => console.warn("Service worker registration failed:", err));
   });
 }
+
+/* ── CUSTOM PWA INSTALL BANNER ──────────────────
+   Hindi na tayo aasa sa awtomatikong Chrome prompt —
+   ito ang sarili nating "Install App" banner na
+   lalabas kapag talagang installable na ang site. */
+(function () {
+  const alreadyInstalled =
+    window.matchMedia("(display-mode: standalone)").matches ||
+    window.navigator.standalone === true;
+  if (alreadyInstalled) return;
+  if (localStorage.getItem("pwa_install_dismissed")) return;
+
+  let deferredPrompt = null;
+
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    showInstallBanner();
+  });
+
+  window.addEventListener("appinstalled", () => {
+    deferredPrompt = null;
+    hideInstallBanner();
+  });
+
+  function showInstallBanner() {
+    if (document.getElementById("pwa-install-banner")) return;
+
+    const banner = document.createElement("div");
+    banner.id = "pwa-install-banner";
+    banner.innerHTML = `
+      <span class="pwa-install-text">📲 I-install ang <strong>Discover Casiguran</strong> bilang app</span>
+      <button class="pwa-install-btn" id="pwaInstallBtn">Install</button>
+      <button class="pwa-install-close" id="pwaInstallClose" aria-label="Isara">✕</button>
+    `;
+    document.body.appendChild(banner);
+    requestAnimationFrame(() => banner.classList.add("show"));
+
+    document.getElementById("pwaInstallBtn").addEventListener("click", async () => {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      deferredPrompt = null;
+      hideInstallBanner();
+    });
+
+    document.getElementById("pwaInstallClose").addEventListener("click", () => {
+      localStorage.setItem("pwa_install_dismissed", "1");
+      hideInstallBanner();
+    });
+  }
+
+  function hideInstallBanner() {
+    const banner = document.getElementById("pwa-install-banner");
+    if (!banner) return;
+    banner.classList.remove("show");
+    setTimeout(() => banner.remove(), 400);
+  }
+})();
