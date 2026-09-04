@@ -3,6 +3,7 @@
   "short_name": "Discover Casiguran",
   "description": "Tourism guide for Casiguran, Aurora, Philippines — beaches, waterfalls, landmarks, directions, and an AI travel assistant.",
   "start_url": "/index.html",
+  "id": "/index.html",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
@@ -17,7 +18,7 @@
       "purpose": "any"
     },
     {
-      "src": "image/logo.png",
+      "src": "image/logo2.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
