@@ -147,3 +147,11 @@ document.querySelectorAll("nav a.active").forEach(activeLink => {
     isLoading = false; chatSend.disabled = false; chatInput.focus();
   }
 })();
+
+/* ── SERVICE WORKER (PWA / offline support) ────── */
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js")
+      .catch(err => console.warn("Service worker registration failed:", err));
+  });
+}
