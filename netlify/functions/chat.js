@@ -1,12 +1,72 @@
+/* ═══════════════════════════════════════════════
+   CHAT.JS — Netlify Function, AI chat backend (Gemini API)
+   May idinagdag na simpleng IP-based rate limiting para
+   maiwasan ang pang-aabuso/spam na puwedeng magpataas ng
+   Gemini API cost.
+═══════════════════════════════════════════════ */
+
+/* The current rate limiting uses an in-memory Map, 
+which resets whenever the serverless function starts a new instance. 
+This provides basic protection against spam and abuse at the current scale, 
+but it is not sufficient against persistent or determined attackers.
+For stronger and persistent rate limiting in the future, the existing 
+Firebase Realtime Database project can be used as the shared storage instead 
+of the in-memory Map. */
+
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10 minuto
+const RATE_LIMIT_MAX_REQUESTS = 10;          // max 10 messages bawat IP kada window
+const rateLimitMap = new Map();
+
+function getClientIp(req) {
+  return (
+    req.headers.get("x-nf-client-connection-ip") ||
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    "unknown"
+  );
+}
+
+function isRateLimited(ip) {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+
+  /* Simple cleanup para hindi lumaki nang sobra ang Map
+     kung maraming unique IPs (para sa hobby-scale na site) */
+  if (rateLimitMap.size > 2000) {
+    for (const [key, val] of rateLimitMap) {
+      if (now - val.start > RATE_LIMIT_WINDOW_MS) rateLimitMap.delete(key);
+    }
+  }
+
+  if (!entry || now - entry.start > RATE_LIMIT_WINDOW_MS) {
+    rateLimitMap.set(ip, { count: 1, start: now });
+    return false;
+  }
+
+  entry.count++;
+  if (entry.count > RATE_LIMIT_MAX_REQUESTS) return true;
+  return false;
+}
+
 export default async (req) => {
   if (req.method !== "POST") {
     return new Response("Method not allowed", { status: 405 });
   }
 
+  const ip = getClientIp(req);
+  if (isRateLimited(ip)) {
+    return new Response(
+      JSON.stringify({
+        error: "Rate limit exceeded",
+        reply: "Sobrang dami ng messages sa maikling oras. Paki-antay muna ng ilang minuto bago mag-ulit. 🙏",
+      }),
+      { status: 429, headers: { "Content-Type": "application/json" } }
+    );
+  }
+
   try {
     const { messages } = await req.json();
 
-    /* I-convert ang messages format para sa Gemini */
+    /* convert messages format for Gemini */
     const geminiMessages = messages.slice(-10).map(m => ({
       role: m.role === "assistant" ? "model" : "user",
       parts: [{ text: m.content }]
@@ -64,12 +124,3 @@ Huwag sumagot ng mga hindi related sa Casiguran o travel.`
     );
   }
 };
-
-/* FIXED: this used to be
-     export const config = { path: "/.netlify/functions/chat.js" };
-   which OVERRIDES the function's URL to end in ".js" — but every page
-   calls fetch("/.netlify/functions/chat") WITHOUT ".js", so every
-   request 404'd and the chat widget always fell back to the error
-   message. Netlify already serves this function at
-   /.netlify/functions/chat by default (from the filename), so no
-   custom "config" is needed at all — removing it fixes the mismatch. */

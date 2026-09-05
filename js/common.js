@@ -58,16 +58,18 @@ document.querySelectorAll("nav a.active").forEach(activeLink => {
 
 /* ── AI CHAT WIDGET ────────────────────────── */
 (function () {
-  const chatBtn    = document.getElementById("ai-chat-btn");
+  const chatBtn = document.getElementById("ai-chat-btn");
   const chatWindow = document.getElementById("ai-chat-window");
-  const chatInput  = document.getElementById("chat-input");
-  const chatSend   = document.getElementById("chat-send");
+  const chatInput = document.getElementById("chat-input");
+  const chatSend = document.getElementById("chat-send");
   const messagesEl = document.getElementById("chat-messages");
-  const suggestEl  = document.getElementById("suggestions");
+  const suggestEl = document.getElementById("suggestions");
   if (!chatBtn) return;
 
   let isOpen = false, isLoading = false, greeted = false;
   let history = [];
+  let lastSendTime = 0;
+  const SEND_COOLDOWN_MS = 2000; // 2 seconds every message, stopped faster na spam-clicking
 
   chatBtn.addEventListener("click", () => {
     isOpen = !isOpen;
@@ -90,6 +92,13 @@ document.querySelectorAll("nav a.active").forEach(activeLink => {
   function sendMsg(text) {
     const q = (text || chatInput.value).trim();
     if (!q || isLoading) return;
+
+    const now = Date.now();
+    if (now - lastSendTime < SEND_COOLDOWN_MS) {
+      return; // masyadong mabilis, i-ignore ang extra send
+    }
+    lastSendTime = now;
+
     chatInput.value = "";
     suggestEl.style.display = "none";
     addUserMsg(q);
@@ -120,7 +129,7 @@ document.querySelectorAll("nav a.active").forEach(activeLink => {
   function removeTyping() { const t = document.getElementById("typing"); if (t) t.remove(); }
   function scrollDown() { messagesEl.scrollTop = messagesEl.scrollHeight; }
   function fmt(t) { return esc(t).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\n/g, "<br>"); }
-  function esc(t) { return t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function esc(t) { return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
 
   async function askAI(question) {
     isLoading = true; chatSend.disabled = true;
@@ -137,9 +146,16 @@ document.querySelectorAll("nav a.active").forEach(activeLink => {
       });
       const data = await res.json();
       removeTyping();
-      if (data.error) throw new Error(data.error);
-      history.push({ role: "assistant", content: data.reply });
-      addBotMsg(data.reply);
+      if (data.error) {
+        if (res.status === 429 && data.reply) {
+          addBotMsg(data.reply);
+        } else {
+          throw new Error(data.error);
+        }
+      } else {
+        history.push({ role: "assistant", content: data.reply });
+        addBotMsg(data.reply);
+      }
     } catch {
       removeTyping();
       addBotMsg("Oops! May problema sa koneksyon. Pakisubukan ulit. 🙏");
@@ -157,9 +173,7 @@ if ("serviceWorker" in navigator) {
 }
 
 /* ── CUSTOM PWA INSTALL BANNER ──────────────────
-   Hindi na tayo aasa sa awtomatikong Chrome prompt —
-   ito ang sarili nating "Install App" banner na
-   lalabas kapag talagang installable na ang site. */
+   It's no longer relying on Chrome’s automatic install prompt. Instead, we’re using a custom “Install App” banner that appears only when the site is actually installable. */
 (function () {
   const alreadyInstalled =
     window.matchMedia("(display-mode: standalone)").matches ||
