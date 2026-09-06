@@ -173,7 +173,7 @@ if ("serviceWorker" in navigator) {
 }
 
 /* ── CUSTOM PWA INSTALL BANNER ──────────────────
-   It's no longer relying on Chrome’s automatic install prompt. Instead, we’re using a custom “Install App” banner that appears only when the site is actually installable. */
+   It's no longer relying on Chrome’s automatic install prompt. Instead, it uses a custom “Install App” banner that appears only when the site is actually installable. */
 (function () {
   const alreadyInstalled =
     window.matchMedia("(display-mode: standalone)").matches ||

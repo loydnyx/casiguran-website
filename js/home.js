@@ -13,12 +13,16 @@ const sliderFill = document.getElementById("sliderFill");
 const INTERVAL = 5500;
 let current = 0, sliderTimer, fillTimer, fillPct = 0;
 
-const slideData = [
-  { eyebrow: "Aurora Province, Philippines", title: "Explore <em>Casiguran,</em><br>Aurora", sub: "The Hidden Paradise of Aurora Province — pristine beaches, hidden waterfalls, and a community that welcomes you like family." },
-  { eyebrow: "Pacific Coastline", title: "Dive Into <em>Crystal</em><br>Clear Waters", sub: "Casiguran's tidal pools and beaches offer snorkeling, swimming, and sunset views that will take your breath away." },
-  { eyebrow: "Nature & Adventure", title: "Discover <em>Hidden</em><br>Waterfalls", sub: "Trek through ancient forests to find cascading falls and natural pools that few have ever witnessed." },
-  { eyebrow: "Heritage & Culture", title: "Explore <em>400 Years</em><br>of History", sub: "From colonial-era churches to centuries-old fishing traditions, Casiguran's rich heritage runs as deep as the Pacific." },
-];
+function getSlideData(index) {
+  const lang = (typeof window.i18nGetLang === "function") ? window.i18nGetLang() : "en";
+  const dict = (window.translations && window.translations[lang]) ? window.translations[lang] : {};
+  const n = index + 1;
+  return {
+    eyebrow: dict[`hero_eyebrow_${n}`] || "",
+    title:   dict[`hero_title_${n}_html`] || "",
+    sub:     dict[`hero_sub_${n}`] || "",
+  };
+}
 
 slides.forEach((_, i) => {
   const d = document.createElement("button");
@@ -35,7 +39,7 @@ function goTo(n) {
   current = (n + slides.length) % slides.length;
   slides[current].classList.add("active");
   dotsContainer.children[current].classList.add("active");
-  updateHeroText(slideData[current]);
+  updateHeroText(getSlideData(current));
   resetFill();
 }
 
@@ -63,6 +67,12 @@ function resetFill() {
 function autoPlay() { sliderTimer = setTimeout(() => { goTo(current + 1); autoPlay(); }, INTERVAL); }
 slides[0].classList.add("active");
 autoPlay(); resetFill();
+
+document.addEventListener("i18nchange", () => {
+  document.getElementById("heroEyebrow").textContent = getSlideData(current).eyebrow;
+  document.getElementById("heroTitle").innerHTML = getSlideData(current).title;
+  document.getElementById("heroSub").textContent = getSlideData(current).sub;
+});
 
 document.getElementById("slidePrev").addEventListener("click", () => { clearTimeout(sliderTimer); goTo(current - 1); autoPlay(); });
 document.getElementById("slideNext").addEventListener("click", () => { clearTimeout(sliderTimer); goTo(current + 1); autoPlay(); });

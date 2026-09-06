@@ -1,8 +1,5 @@
 /* ═══════════════════════════════════════════════
    CHAT.JS — Netlify Function, AI chat backend (Gemini API)
-   May idinagdag na simpleng IP-based rate limiting para
-   maiwasan ang pang-aabuso/spam na puwedeng magpataas ng
-   Gemini API cost.
 ═══════════════════════════════════════════════ */
 
 /* The current rate limiting uses an in-memory Map, 
@@ -13,8 +10,8 @@ For stronger and persistent rate limiting in the future, the existing
 Firebase Realtime Database project can be used as the shared storage instead 
 of the in-memory Map. */
 
-const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10 minuto
-const RATE_LIMIT_MAX_REQUESTS = 10;          // max 10 messages bawat IP kada window
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; 
+const RATE_LIMIT_MAX_REQUESTS = 10;    
 const rateLimitMap = new Map();
 
 function getClientIp(req) {

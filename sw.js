@@ -5,7 +5,7 @@
    pero may fallback pa rin kapag offline).
 ═══════════════════════════════════════════════ */
 
-const CACHE_NAME = "casiguran-cache-v1";
+const CACHE_NAME = "casiguran-cache-v2";
 
 /* Core files na dapat laging naka-cache para gumana ang site offline */
 const CORE_ASSETS = [
@@ -38,7 +38,6 @@ self.addEventListener("install", (event) => {
   self.skipWaiting();
 });
 
-/* ── ACTIVATE: burahin ang mga lumang cache versions ─── */
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
@@ -52,8 +51,7 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
-/* ── FETCH: network-first para sa HTML (laging fresh),
-   cache-first para sa lahat ng iba (CSS/JS/images) ── */
+
 self.addEventListener("fetch", (event) => {
   const req = event.request;
 

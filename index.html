@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discover Casiguran · Aurora's Hidden Gem</title>
+<meta name="description" content="Discover Casiguran, Aurora — the Hidden Paradise of Aurora Province, Philippines. Explore pristine Pacific beaches, hidden waterfalls, and a community that welcomes you like family.">
+<link rel="canonical" href="https://casiguran-website.netlify.app/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Discover Casiguran">
+<meta property="og:title" content="Discover Casiguran · Aurora's Hidden Gem">
+<meta property="og:description" content="The Hidden Paradise of Aurora Province — pristine beaches, hidden waterfalls, and a community that welcomes you like family.">
+<meta property="og:image" content="https://casiguran-website.netlify.app/image/Casiguran-Website.jpg">
+<meta property="og:url" content="https://casiguran-website.netlify.app/index.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Discover Casiguran · Aurora's Hidden Gem">
+<meta name="twitter:description" content="The Hidden Paradise of Aurora Province — pristine beaches, hidden waterfalls, and a community that welcomes you like family.">
+<meta name="twitter:image" content="https://casiguran-website.netlify.app/image/Casiguran-Website.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="image/logo2.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0e2a1f">
+<link rel="apple-touch-icon" href="image/logo2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-97SVSD3EPF"></script>
@@ -11,34 +32,8 @@
   gtag('config', 'G-97SVSD3EPF');
 </script>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Discover Casiguran · Aurora's Hidden Gem</title>
-<meta name="description" content="Discover Casiguran, Aurora — the Hidden Paradise of Aurora Province, Philippines. Explore pristine Pacific beaches, hidden waterfalls, and a community that welcomes you like family.">
-<link rel="canonical" href="https://casiguran-website.netlify.app/index.html">
-
-<!-- Open Graph / Facebook & Messenger -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Discover Casiguran">
-<meta property="og:title" content="Discover Casiguran · Aurora's Hidden Gem">
-<meta property="og:description" content="The Hidden Paradise of Aurora Province — pristine beaches, hidden waterfalls, and a community that welcomes you like family.">
-<meta property="og:image" content="https://casiguran-website.netlify.app/image/Casiguran-Website.jpg">
-<meta property="og:url" content="https://casiguran-website.netlify.app/index.html">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Discover Casiguran · Aurora's Hidden Gem">
-<meta name="twitter:description" content="The Hidden Paradise of Aurora Province — pristine beaches, hidden waterfalls, and a community that welcomes you like family.">
-<meta name="twitter:image" content="https://casiguran-website.netlify.app/image/Casiguran-Website.jpg">
-<link rel="icon" type="image/png" sizes="32x32" href="image/logo2.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/home.css">
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0e2a1f">
-<link rel="apple-touch-icon" href="image/logo2.png">
 </head>
 <body>
 
@@ -46,8 +41,8 @@
 
 <!-- ANNOUNCEMENT BAR -->
 <div id="announce-bar">
-  🌊 Best time to visit: <strong>November – May</strong> (dry season) — Plan your trip today!
-  <a href="location.html">Get directions →</a>
+  <span data-i18n-html="announce_text_html">🌊 Best time to visit: <strong>November – May</strong> (dry season) — Plan your trip today!</span>
+  <a href="location.html" data-i18n="announce_link">Get directions →</a>
   <button id="announce-close" aria-label="Close announcement">✕</button>
 </div>
 
@@ -62,10 +57,15 @@
     </div>
   </div>
   <div class="menu">
-    <a href="index.html" class="active">Home</a>
-    <a href="spots.html">Tourist Spots</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="location.html">Location</a>
+    <a href="index.html" class="active" data-i18n="nav_home">Home</a>
+    <a href="spots.html" data-i18n="nav_spots">Tourist Spots</a>
+    <a href="gallery.html" data-i18n="nav_gallery">Gallery</a>
+    <a href="location.html" data-i18n="nav_location">Location</a>
+    <a href="contact.html" data-i18n="nav_contact">Contact</a>
+  </div>
+  <div class="lang-toggle lang-toggle-desktop" role="group" aria-label="Language">
+    <button class="lang-opt" data-lang="en">EN</button>
+    <button class="lang-opt" data-lang="tl">FIL</button>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -74,10 +74,15 @@
 
 <!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
-  <a href="index.html" class="active">Home</a>
-  <a href="spots.html">Tourist Spots</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="location.html">Location</a>
+  <a href="index.html" class="active" data-i18n="nav_home">Home</a>
+  <a href="spots.html" data-i18n="nav_spots">Tourist Spots</a>
+  <a href="gallery.html" data-i18n="nav_gallery">Gallery</a>
+  <a href="location.html" data-i18n="nav_location">Location</a>
+  <a href="contact.html" data-i18n="nav_contact">Contact</a>
+  <div class="lang-toggle lang-toggle-mobile" role="group" aria-label="Language">
+    <button class="lang-opt" data-lang="en">EN</button>
+    <button class="lang-opt" data-lang="tl">FIL</button>
+  </div>
 </div>
 
 <!-- HERO -->
@@ -103,16 +108,16 @@
 
   <!-- Hero Content -->
   <div class="hero-content" id="heroContent">
-    <p class="hero-eyebrow" id="heroEyebrow">Aurora Province, Philippines</p>
-    <h1 class="hero-h1" id="heroTitle">
+    <p class="hero-eyebrow" id="heroEyebrow" data-i18n="hero_eyebrow_1">Aurora Province, Philippines</p>
+    <h1 class="hero-h1" id="heroTitle" data-i18n-html="hero_title_1_html">
       Explore <em>Casiguran,</em><br>Aurora
     </h1>
-    <p class="hero-sub" id="heroSub">
+    <p class="hero-sub" id="heroSub" data-i18n="hero_sub_1">
       The Hidden Paradise of Aurora Province — pristine beaches, hidden waterfalls, and a community that welcomes you like family.
     </p>
     <div class="hero-actions">
-      <a href="spots.html" class="btn-primary">Explore Spots →</a>
-      <a href="#about"     class="btn-ghost">Learn More</a>
+      <a href="spots.html" class="btn-primary" data-i18n="hero_action_explore">Explore Spots →</a>
+      <a href="#about"     class="btn-ghost" data-i18n="hero_action_learn">Learn More</a>
     </div>
   </div>
 
@@ -133,20 +138,20 @@
 
 <!-- STATS STRIP -->
 <div class="stats-strip" id="stats">
-  <div class="stat-item"><div class="stat-num">10+</div><div class="stat-label">Destinations</div></div>
-  <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">Beach Spots</div></div>
-  <div class="stat-item"><div class="stat-num">2</div><div class="stat-label">Waterfalls</div></div>
-  <div class="stat-item"><div class="stat-num">∞</div><div class="stat-label">Adventures</div></div>
+  <div class="stat-item"><div class="stat-num">10+</div><div class="stat-label" data-i18n="stats_destinations">Destinations</div></div>
+  <div class="stat-item"><div class="stat-num">3</div><div class="stat-label" data-i18n="stats_beach">Beach Spots</div></div>
+  <div class="stat-item"><div class="stat-num">2</div><div class="stat-label" data-i18n="stats_falls">Waterfalls</div></div>
+  <div class="stat-item"><div class="stat-num">∞</div><div class="stat-label" data-i18n="stats_adventures">Adventures</div></div>
 </div>
 
 <!-- VISITOR COUNTER -->
 <div id="visitor-strip">
   <div class="vc-item">
     <span class="vc-dot"></span>
-    <span><span class="vc-num" id="vcOnline">--</span> visitors online now</span>
+    <span><span class="vc-num" id="vcOnline">--</span> <span data-i18n="vc_online">visitors online now</span></span>
   </div>
-  <div class="vc-item">📅 <span><span class="vc-num" id="vcMonth">--</span> visits this month</span></div>
-  <div class="vc-item">🌏 <span><span class="vc-num" id="vcTotal">--</span> total visitors</span></div>
+  <div class="vc-item">📅 <span><span class="vc-num" id="vcMonth">--</span> <span data-i18n="vc_month">visits this month</span></span></div>
+  <div class="vc-item">🌏 <span><span class="vc-num" id="vcTotal">--</span> <span data-i18n="vc_total">total visitors</span></span></div>
 </div>
 
 <!-- ABOUT -->
@@ -159,23 +164,23 @@
     </div>
     <div class="about-badge" aria-hidden="true">
       <div class="about-badge-num">1604</div>
-      <div class="about-badge-label">Year Casiguran was established</div>
+      <div class="about-badge-label" data-i18n="about_badge_label">Year Casiguran was established</div>
     </div>
   </div>
   <div class="about-copy">
-    <p class="section-eyebrow">About the Municipality</p>
-    <h2 class="section-title">A Coastal Gem on<br>the Pacific Shore</h2>
+    <p class="section-eyebrow" data-i18n="about_eyebrow">About the Municipality</p>
+    <h2 class="section-title" data-i18n-html="about_title_html">A Coastal Gem on<br>the Pacific Shore</h2>
     <div class="section-rule"></div>
     <div class="about-body">
-      <p>Casiguran is a coastal municipality in the province of Aurora, Philippines. Nestled along the shores of Casiguran Bay, it is celebrated for its serene natural environment, scenic coastlines, and a rich cultural heritage shaped by generations of indigenous and coastal communities.</p>
+      <p data-i18n="about_p1">Casiguran is a coastal municipality in the province of Aurora, Philippines. Nestled along the shores of Casiguran Bay, it is celebrated for its serene natural environment, scenic coastlines, and a rich cultural heritage shaped by generations of indigenous and coastal communities.</p>
       <div class="more-content" id="moreContent">
-        <p>Situated on the eastern coast of Luzon, Casiguran serves as a gateway to extraordinary natural attractions — from pristine Pacific beaches and hidden waterfalls to protected forests and historic landmarks.</p>
-        <p>The community of Casiguran takes pride in its deep connection to the sea. Fishing remains central to local life and culture, and visitors are warmly welcomed with fresh seafood, traditional hospitality, and an authentic glimpse into coastal Filipino living.</p>
-        <p>With its blend of environmental wealth, cultural identity, and tranquil pace of life, Casiguran is not just a destination — it is an experience that stays with you long after you've left its shores.</p>
+        <p data-i18n="about_p2">Situated on the eastern coast of Luzon, Casiguran serves as a gateway to extraordinary natural attractions — from pristine Pacific beaches and hidden waterfalls to protected forests and historic landmarks.</p>
+        <p data-i18n="about_p3">The community of Casiguran takes pride in its deep connection to the sea. Fishing remains central to local life and culture, and visitors are warmly welcomed with fresh seafood, traditional hospitality, and an authentic glimpse into coastal Filipino living.</p>
+        <p data-i18n="about_p4">With its blend of environmental wealth, cultural identity, and tranquil pace of life, Casiguran is not just a destination — it is an experience that stays with you long after you've left its shores.</p>
       </div>
     </div>
     <button class="read-more-btn" id="readMoreBtn" onclick="toggleReadMore()">
-      <span id="readMoreLabel">Read More</span>
+      <span id="readMoreLabel" data-i18n="read_more">Read More</span>
       <span class="rmb-arrow" id="btnArrow">↓</span>
     </button>
   </div>
@@ -184,8 +189,8 @@
 <!-- HIGHLIGHTS -->
 <section class="highlights-section" id="highlights">
   <div class="highlights-header">
-    <p class="section-eyebrow">Top Destinations</p>
-    <h2 class="section-title">Popular Tourist Spots</h2>
+    <p class="section-eyebrow" data-i18n="highlights_eyebrow">Top Destinations</p>
+    <h2 class="section-title" data-i18n="highlights_title">Popular Tourist Spots</h2>
     <div class="section-rule"></div>
   </div>
   <div class="highlights-grid">
@@ -193,39 +198,39 @@
       <img src="image/Casapsapan-Beach.jpg" alt="Casapsapan Beach">
       <div class="hc-overlay">
         <span class="hc-badge">🏖 Beach</span>
-        <h3 class="hc-title">Casapsapan Beach</h3>
-        <p class="hc-desc">Calm Pacific waters and breathtaking sunrise panoramas await at Casiguran's most beloved beach.</p>
-        <a href="spots.html" class="hc-link">Explore <span>→</span></a>
+        <h3 class="hc-title" data-i18n="hc_beach_title">Casapsapan Beach</h3>
+        <p class="hc-desc" data-i18n="hc_beach_desc">Calm Pacific waters and breathtaking sunrise panoramas await at Casiguran's most beloved beach.</p>
+        <a href="spots.html" class="hc-link"><span data-i18n="hc_link">Explore →</span></a>
       </div>
     </div>
     <div class="highlight-card" data-delay="100">
       <img src="image/Tibu-Tidal.jpg" alt="Tibu Tidal Pool">
       <div class="hc-overlay">
         <span class="hc-badge">🌊 Tidal Pool</span>
-        <h3 class="hc-title">Tibu Tidal Pool</h3>
-        <p class="hc-desc">Geological rock basins filled by Pacific tides, perfect for snorkeling and photography.</p>
-        <a href="spots.html" class="hc-link">Explore <span>→</span></a>
+        <h3 class="hc-title" data-i18n="hc_tidal_title">Tibu Tidal Pool</h3>
+        <p class="hc-desc" data-i18n="hc_tidal_desc">Geological rock basins filled by Pacific tides, perfect for snorkeling and photography.</p>
+        <a href="spots.html" class="hc-link"><span data-i18n="hc_link">Explore →</span></a>
       </div>
     </div>
     <div class="highlight-card" data-delay="200">
       <img src="image/Bulawan-Falls.jpg" alt="Bulawan Falls">
       <div class="hc-overlay">
         <span class="hc-badge">🌿 Waterfall</span>
-        <h3 class="hc-title">Bulawan Falls</h3>
-        <p class="hc-desc">A secluded waterfall cascading over golden-hued rocks, deep in Casiguran's forest interior.</p>
-        <a href="spots.html" class="hc-link">Explore <span>→</span></a>
+        <h3 class="hc-title" data-i18n="hc_falls_title">Bulawan Falls</h3>
+        <p class="hc-desc" data-i18n="hc_falls_desc">A secluded waterfall cascading over golden-hued rocks, deep in Casiguran's forest interior.</p>
+        <a href="spots.html" class="hc-link"><span data-i18n="hc_link">Explore →</span></a>
       </div>
     </div>
   </div>
   <div class="spots-cta">
-    <a href="spots.html" class="btn-primary">View All Destinations →</a>
+    <a href="spots.html" class="btn-primary" data-i18n="spots_cta">View All Destinations →</a>
   </div>
 </section>
 
 <!-- BEST TIME TO VISIT -->
 <section class="best-time-section" id="best-time">
-  <p class="section-eyebrow">Plan Your Visit</p>
-  <h2 class="section-title">Best Time to Visit Casiguran</h2>
+  <p class="section-eyebrow" data-i18n="besttime_eyebrow">Plan Your Visit</p>
+  <h2 class="section-title" data-i18n="besttime_title">Best Time to Visit Casiguran</h2>
   <div class="section-rule"></div>
   <div class="months-grid" style="margin-top:28px">
     <div class="month-card best"><div class="m-icon">☀️</div><div class="m-name">Jan</div><div class="m-label">Great</div></div>
@@ -242,8 +247,8 @@
     <div class="month-card best"><div class="m-icon">☀️</div><div class="m-name">Dec</div><div class="m-label">Great</div></div>
   </div>
   <div class="bt-legend">
-    <div class="bt-legend-item"><div class="bt-dot best"></div>Best / Great months</div>
-    <div class="bt-legend-item"><div class="bt-dot avoid"></div>Avoid (rainy / typhoon)</div>
+    <div class="bt-legend-item"><div class="bt-dot best"></div><span data-i18n="legend_best">Best / Great months</span></div>
+    <div class="bt-legend-item"><div class="bt-dot avoid"></div><span data-i18n="legend_avoid">Avoid (rainy / typhoon)</span></div>
   </div>
 </section>
 
@@ -251,11 +256,11 @@
 <section class="gallery-section" id="gallery-teaser">
   <div class="gallery-header">
     <div>
-      <p class="section-eyebrow">Visual Stories</p>
-      <h2 class="section-title" style="margin-bottom:0">Photo Gallery</h2>
+      <p class="section-eyebrow" data-i18n="gallery_eyebrow">Visual Stories</p>
+      <h2 class="section-title" style="margin-bottom:0" data-i18n="gallery_title">Photo Gallery</h2>
       <div class="section-rule"></div>
     </div>
-    <a href="gallery.html" class="view-all-btn">View Full Gallery →</a>
+    <a href="gallery.html" class="view-all-btn" data-i18n="gallery_viewall">View Full Gallery →</a>
   </div>
   <div class="gallery-mosaic">
     <div class="gm-item" data-src="image/Casapsapan-Beach.jpg" data-caption="Casapsapan Beach">
@@ -294,14 +299,14 @@
 <section class="map-section" id="map">
   <div class="map-inner">
     <div class="map-copy">
-      <p class="section-eyebrow">Getting There</p>
-      <h2 class="section-title" style="color:var(--c-sand);margin-bottom:0">Find Casiguran, Aurora</h2>
+      <p class="section-eyebrow" data-i18n="map_eyebrow">Getting There</p>
+      <h2 class="section-title" style="color:var(--c-sand);margin-bottom:0" data-i18n="map_title">Find Casiguran, Aurora</h2>
       <div class="section-rule"></div>
       <div class="map-details">
-        <div class="map-detail"><span class="md-icon">📍</span><div><div class="md-label">Location</div><div class="md-val">Casiguran, Aurora Province<br>Luzon, Philippines</div></div></div>
-        <div class="map-detail"><span class="md-icon">🚗</span><div><div class="md-label">From Manila</div><div class="md-val">~7–9 hours via Baler or Dingalan route</div></div></div>
-        <div class="map-detail"><span class="md-icon">🛥</span><div><div class="md-label">By Sea</div><div class="md-val">Accessible via pumpboat from Baler or Dinalungan</div></div></div>
-        <div class="map-detail"><span class="md-icon">🌡</span><div><div class="md-label">Best Season</div><div class="md-val">November – May (dry season)</div></div></div>
+        <div class="map-detail"><span class="md-icon">📍</span><div><div class="md-label" data-i18n="map_location_label">Location</div><div class="md-val" data-i18n-html="map_location_val_html">Casiguran, Aurora Province<br>Luzon, Philippines</div></div></div>
+        <div class="map-detail"><span class="md-icon">🚗</span><div><div class="md-label" data-i18n="map_manila_label">From Manila</div><div class="md-val" data-i18n="map_manila_val">~7–9 hours via Baler or Dingalan route</div></div></div>
+        <div class="map-detail"><span class="md-icon">🛥</span><div><div class="md-label" data-i18n="map_sea_label">By Sea</div><div class="md-val" data-i18n="map_sea_val">Accessible via pumpboat from Baler or Dinalungan</div></div></div>
+        <div class="map-detail"><span class="md-icon">🌡</span><div><div class="md-label" data-i18n="map_season_label">Best Season</div><div class="md-val" data-i18n="map_season_val">November – May (dry season)</div></div></div>
       </div>
     </div>
     <div class="map-frame">
@@ -315,15 +320,16 @@
 <footer>
   <div class="footer-brand">
     <div class="logo-name">Discover Casiguran</div>
-    <p>Casiguran, Aurora Province · Philippines</p>
+    <p data-i18n="footer_tagline">Casiguran, Aurora Province · Philippines</p>
   </div>
   <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="spots.html">Spots</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="location.html">Location</a>
+    <a href="index.html" data-i18n="nav_home">Home</a>
+    <a href="spots.html" data-i18n="nav_spots">Spots</a>
+    <a href="gallery.html" data-i18n="nav_gallery">Gallery</a>
+    <a href="location.html" data-i18n="nav_location">Location</a>
+    <a href="contact.html" data-i18n="nav_contact">Contact</a>
   </div>
-  <p class="footer-copy">© 2026 Discover Casiguran · Aurora's Hidden Gem</p>
+  <p class="footer-copy" data-i18n="footer_copy">© 2026 Discover Casiguran · Aurora's Hidden Gem</p>
 </footer>
 
 <button id="backTop" aria-label="Back to top">↑</button>
@@ -331,7 +337,7 @@
 <div id="site-toast" role="status">
   <span class="toast-icon">🚫</span>
   <div>
-    <p class="toast-title">You are already on this page.</p>
+    <p class="toast-title" data-i18n="toast_already_title">You are already on this page.</p>
     <p class="toast-sub">Home · Discover Casiguran</p>
   </div>
 </div>
@@ -342,23 +348,23 @@
   <div class="chat-header">
     <div class="chat-avatar">🌊</div>
     <div class="chat-header-info">
-      <h4>Casiguran AI Guide</h4>
-      <p>Aurora's Hidden Gem · Ask Anything</p>
+      <h4 data-i18n="chat_title">Casiguran AI Guide</h4>
+      <p data-i18n="chat_subtitle">Aurora's Hidden Gem · Ask Anything</p>
     </div>
     <div class="chat-status">
-      <div class="chat-status-dot"></div>Online
+      <div class="chat-status-dot"></div><span data-i18n="chat_status">Online</span>
     </div>
   </div>
   <div id="chat-messages"></div>
   <div class="suggestions" id="suggestions">
-    <button class="suggestion-btn">🏖 Best beaches?</button>
-    <button class="suggestion-btn">🚗 How to get there?</button>
-    <button class="suggestion-btn">📅 Best time to visit?</button>
-    <button class="suggestion-btn">🌊 Tibu Tidal Pool?</button>
-    <button class="suggestion-btn">💰 Budget tips?</button>
+    <button class="suggestion-btn" data-i18n="chat_suggest_3">🏖 Best beaches?</button>
+    <button class="suggestion-btn" data-i18n="chat_suggest_1">🚗 How to get there?</button>
+    <button class="suggestion-btn" data-i18n="chat_suggest_2">📅 Best time to visit?</button>
+    <button class="suggestion-btn" data-i18n="chat_suggest_5">🌊 Tibu Tidal Pool?</button>
+    <button class="suggestion-btn" data-i18n="chat_suggest_4">💰 Budget tips?</button>
   </div>
   <div class="chat-input-row">
-    <input type="text" id="chat-input" placeholder="Ask about Casiguran…" autocomplete="off" aria-label="Chat message">
+    <input type="text" id="chat-input" data-i18n-placeholder="chat_placeholder" placeholder="Ask about Casiguran…" autocomplete="off" aria-label="Chat message">
     <button id="chat-send" aria-label="Send message">➤</button>
   </div>
 </div>
@@ -366,6 +372,7 @@
 <!-- ═══════════════════════════════════════════
      JAVASCRIPT
 ═══════════════════════════════════════════ -->
+<script src="js/i18n.js"></script>
 <script src="js/common.js"></script>
 
 <script type="module" src="js/home.js"></script>

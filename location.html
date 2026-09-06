@@ -17,7 +17,6 @@
 <meta name="description" content="How to get to Casiguran, Aurora — travel routes from Manila, best time to visit, and everything you need to plan your trip to this hidden Pacific coast paradise.">
 <link rel="canonical" href="https://casiguran-website.netlify.app/location.html">
 
-<!-- Open Graph / Facebook & Messenger -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Discover Casiguran">
 <meta property="og:title" content="Location – Discover Casiguran">
@@ -25,7 +24,6 @@
 <meta property="og:image" content="https://casiguran-website.netlify.app/image/Casiguran-Website.jpg">
 <meta property="og:url" content="https://casiguran-website.netlify.app/location.html">
 
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Location – Discover Casiguran">
 <meta name="twitter:description" content="Tucked along the Pacific coast of Aurora — remote, serene, and absolutely worth the journey.">
@@ -44,8 +42,8 @@
 <div id="progress-bar"></div>
 
 <div id="announce-bar">
-  🌊 Best time to visit: <strong>November – May</strong> (dry season) — Plan your trip today!
-  <a href="location.html">Get directions →</a>
+  <span data-i18n-html="announce_text_html">🌊 Best time to visit: <strong>November – May</strong> (dry season) — Plan your trip today!</span>
+  <a href="location.html" data-i18n="announce_link">Get directions →</a>
   <button id="announce-close" aria-label="Close">✕</button>
 </div>
 
@@ -58,21 +56,34 @@
     </div>
   </div>
   <div class="menu">
-    <a href="index.html">Home</a>
-    <a href="spots.html">Tourist Spots</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="location.html" class="active">Location</a>
+    <a href="index.html" data-i18n="nav_home">Home</a>
+    <a href="spots.html" data-i18n="nav_spots">Tourist Spots</a>
+    <a href="gallery.html" data-i18n="nav_gallery">Gallery</a>
+    <a href="location.html" class="active" data-i18n="nav_location">Location</a>
+    <a href="contact.html" data-i18n="nav_contact">Contact</a>
   </div>
+
+  <div class="lang-toggle lang-toggle-desktop" role="group" aria-label="Language">
+    <button class="lang-opt" data-lang="en">EN</button>
+    <button class="lang-opt" data-lang="tl">FIL</button>
+  </div>
+
   <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <div class="mobile-nav" id="mobileNav">
-  <a href="index.html">Home</a>
-  <a href="spots.html">Tourist Spots</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="location.html" class="active">Location</a>
+  <a href="index.html" data-i18n="nav_home">Home</a>
+  <a href="spots.html" data-i18n="nav_spots">Tourist Spots</a>
+  <a href="gallery.html" data-i18n="nav_gallery">Gallery</a>
+  <a href="location.html" class="active" data-i18n="nav_location">Location</a>
+  <a href="contact.html" data-i18n="nav_contact">Contact</a>
+
+  <div class="lang-toggle lang-toggle-mobile" role="group" aria-label="Language">
+    <button class="lang-opt" data-lang="en">EN</button>
+    <button class="lang-opt" data-lang="tl">FIL</button>
+  </div>
 </div>
 
 <!-- PAGE HERO -->
@@ -81,9 +92,9 @@
     <source src="video/trail-flyover.mp4" type="video/mp4">
   </video>
   <button class="sound-toggle" id="soundToggle" aria-label="Toggle video sound" aria-pressed="false">🔇</button>
-  <p class="page-eyebrow">Find Your Way</p>
-  <h1>Getting to <em>Casiguran</em></h1>
-  <p>Tucked along the Pacific coast of Aurora — remote, serene, and absolutely worth the journey.</p>
+  <p class="page-eyebrow" data-i18n="loc_eyebrow">Find Your Way</p>
+  <h1 data-i18n-html="loc_title_html">Getting to <em>Casiguran</em></h1>
+  <p data-i18n="loc_desc">Tucked along the Pacific coast of Aurora — remote, serene, and absolutely worth the journey.</p>
   <div class="page-rule"></div>
 </div>
 
@@ -91,23 +102,23 @@
 <div class="stats-pills fade-in">
   <a class="stat-pill" href="#map-card">
     <span class="pill-icon">📍</span>
-    <div class="pill-text"><strong>Aurora, Philippines</strong>Province</div>
+    <div class="pill-text"><strong>Aurora, Philippines</strong><span data-i18n="loc_pill_province">Province</span></div>
   </a>
   <a class="stat-pill" href="https://maps.google.com/?q=Casiguran+Bay+Aurora+Philippines" target="_blank" rel="noopener">
     <span class="pill-icon">🌊</span>
-    <div class="pill-text"><strong>Pacific Coast</strong>Facing East</div>
+    <div class="pill-text"><strong>Pacific Coast</strong><span data-i18n="loc_pill_facing">Facing East</span></div>
   </a>
   <a class="stat-pill" href="https://www.google.com/maps/dir/Manila+Philippines/Casiguran+Aurora+Philippines" target="_blank" rel="noopener">
     <span class="pill-icon">🚗</span>
-    <div class="pill-text"><strong>~6–8 hrs</strong>from Manila</div>
+    <div class="pill-text"><strong>~6–8 hrs</strong><span data-i18n="loc_pill_frommanila">from Manila</span></div>
   </a>
   <div class="stat-pill">
     <span class="pill-icon">🌡️</span>
-    <div class="pill-text"><strong>24°C – 32°C</strong>Avg. Temperature</div>
+    <div class="pill-text"><strong>24°C – 32°C</strong><span data-i18n="loc_pill_avgtemp">Avg. Temperature</span></div>
   </div>
   <div class="stat-pill">
     <span class="pill-icon">📅</span>
-    <div class="pill-text"><strong>Nov – May</strong>Best Time to Visit</div>
+    <div class="pill-text"><strong>Nov – May</strong><span data-i18n="loc_pill_besttime">Best Time to Visit</span></div>
   </div>
 </div>
 
@@ -117,9 +128,9 @@
   <!-- MAP CARD -->
   <div class="map-card fade-in" id="map-card">
     <div class="map-tabs">
-      <button class="map-tab active" data-map="town">🏘 Town Center</button>
-      <button class="map-tab" data-map="bay">🌊 Casiguran Bay</button>
-      <button class="map-tab" data-map="region">🗺 Aurora Region</button>
+      <button class="map-tab active" data-map="town" data-i18n="map_tab_town">🏘 Town Center</button>
+      <button class="map-tab" data-map="bay" data-i18n="map_tab_bay">🌊 Casiguran Bay</button>
+      <button class="map-tab" data-map="region" data-i18n="map_tab_region">🗺 Aurora Region</button>
     </div>
     <div class="map-frame active" id="map-town">
       <iframe src="https://www.google.com/maps?q=Casiguran+Aurora+Philippines&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Casiguran Town Center"></iframe>
@@ -132,7 +143,7 @@
     </div>
     <div class="map-footer">
       <span class="coords">📐 16.2806° N, 122.1217° E</span>
-      <a href="https://maps.google.com/?q=Casiguran+Aurora+Philippines" target="_blank" rel="noopener" class="open-maps-btn">↗ Open in Google Maps</a>
+      <a href="https://maps.google.com/?q=Casiguran+Aurora+Philippines" target="_blank" rel="noopener" class="open-maps-btn" data-i18n="map_openbtn">↗ Open in Google Maps</a>
     </div>
   </div>
 
@@ -140,82 +151,82 @@
   <aside class="sidebar">
 
     <div class="info-card fade-in">
-      <div class="card-label">📌 Location</div>
+      <div class="card-label" data-i18n="card_location">📌 Location</div>
       <div class="address-block">
         <h3>Casiguran, Aurora</h3>
-        <p>Municipality of Casiguran<br>Province of Aurora<br>Region III – Central Luzon<br>Philippines</p>
-        <span class="loc-badge">🌏 Pacific Rim Municipality</span>
+        <p data-i18n-html="loc_address_html">Municipality of Casiguran<br>Province of Aurora<br>Region III – Central Luzon<br>Philippines</p>
+        <span class="loc-badge" data-i18n="loc_badge">🌏 Pacific Rim Municipality</span>
       </div>
     </div>
 
     <div class="info-card fade-in">
-      <div class="card-label">🧭 How to Get There</div>
+      <div class="card-label" data-i18n="card_howtogetthere">🧭 How to Get There</div>
       <div class="route-list">
         <div class="route-item">
           <div class="route-icon">🚌</div>
           <div class="route-info">
-            <h4>Bus from Manila</h4>
-            <p>Take a bus from Cubao or Pasay to Baler, Aurora. From Baler, ride a jeepney or van bound for Casiguran.</p>
-            <span class="time-badge">⏱ ~8–9 hrs total</span>
+            <h4 data-i18n="route_bus_title">Bus from Manila</h4>
+            <p data-i18n="route_bus_desc">Take a bus from Cubao or Pasay to Baler, Aurora. From Baler, ride a jeepney or van bound for Casiguran.</p>
+            <span class="time-badge" data-i18n="route_bus_time">⏱ ~8–9 hrs total</span>
           </div>
         </div>
         <div class="route-item">
           <div class="route-icon">🚗</div>
           <div class="route-info">
-            <h4>Private Car via Baler</h4>
-            <p>Drive from Manila via NLEX → TPLEX → Nueva Ecija → Baler, then continue north along the coast.</p>
-            <span class="time-badge">⏱ ~6–7 hrs</span>
+            <h4 data-i18n="route_car_title">Private Car via Baler</h4>
+            <p data-i18n="route_car_desc">Drive from Manila via NLEX → TPLEX → Nueva Ecija → Baler, then continue north along the coast.</p>
+            <span class="time-badge" data-i18n="route_car_time">⏱ ~6–7 hrs</span>
           </div>
         </div>
         <div class="route-item">
           <div class="route-icon">🛥️</div>
           <div class="route-info">
-            <h4>Boat from Palanan</h4>
-            <p>Travel by pump boat from Palanan, Isabela across to Casiguran Bay — a scenic coastal route.</p>
-            <span class="time-badge">⏱ ~2–3 hrs by sea</span>
+            <h4 data-i18n="route_boat_title">Boat from Palanan</h4>
+            <p data-i18n="route_boat_desc">Travel by pump boat from Palanan, Isabela across to Casiguran Bay — a scenic coastal route.</p>
+            <span class="time-badge" data-i18n="route_boat_time">⏱ ~2–3 hrs by sea</span>
           </div>
         </div>
         <div class="route-item">
           <div class="route-icon">✈️</div>
           <div class="route-info">
-            <h4>Fly to Palanan / Baler</h4>
-            <p>Charter flights available to Palanan Airport (Isabela). From Palanan, take a boat or jeep to Casiguran.</p>
-            <span class="time-badge">⏱ ~1 hr flight + transfer</span>
+            <h4 data-i18n="route_fly_title">Fly to Palanan / Baler</h4>
+            <p data-i18n="route_fly_desc">Charter flights available to Palanan Airport (Isabela). From Palanan, take a boat or jeep to Casiguran.</p>
+            <span class="time-badge" data-i18n="route_fly_time">⏱ ~1 hr flight + transfer</span>
           </div>
         </div>
       </div>
     </div>
 
     <div class="info-card fade-in">
-      <div class="card-label">📅 Best Time to Visit</div>
+      <div class="card-label" data-i18n="card_besttime">📅 Best Time to Visit</div>
       <div class="season-grid">
-        <div class="season-item best"><div class="s-month">☀️ Mar – May</div><div class="s-desc">Dry season — ideal for beaches and waterfalls.</div></div>
-        <div class="season-item best"><div class="s-month">☀️ Nov – Feb</div><div class="s-desc">Cool and less humid, great for trekking.</div></div>
-        <div class="season-item"><div class="s-month">🌧 Jun – Aug</div><div class="s-desc">Rainy season. Some roads may flood.</div></div>
-        <div class="season-item"><div class="s-month">🌀 Sep – Oct</div><div class="s-desc">Typhoon season — avoid if possible.</div></div>
+        <div class="season-item best"><div class="s-month" data-i18n="season_dry_month">☀️ Mar – May</div><div class="s-desc" data-i18n="season_dry_desc">Dry season — ideal for beaches and waterfalls.</div></div>
+        <div class="season-item best"><div class="s-month" data-i18n="season_cool_month">☀️ Nov – Feb</div><div class="s-desc" data-i18n="season_cool_desc">Cool and less humid, great for trekking.</div></div>
+        <div class="season-item"><div class="s-month" data-i18n="season_rain_month">🌧 Jun – Aug</div><div class="s-desc" data-i18n="season_rain_desc">Rainy season. Some roads may flood.</div></div>
+        <div class="season-item"><div class="s-month" data-i18n="season_typhoon_month">🌀 Sep – Oct</div><div class="s-desc" data-i18n="season_typhoon_desc">Typhoon season — avoid if possible.</div></div>
       </div>
     </div>
 
     <div class="info-card fade-in">
-      <div class="card-label">💡 Travel Tips</div>
+      <div class="card-label" data-i18n="card_traveltips">💡 Travel Tips</div>
       <div class="tips-list">
-        <div class="tip-item"><span class="tip-dot"></span>Bring enough cash — ATMs are very limited in town.</div>
-        <div class="tip-item"><span class="tip-dot"></span>Mobile signal is spotty; download offline maps before leaving.</div>
-        <div class="tip-item"><span class="tip-dot"></span>Bring insect repellent for forest and waterfall treks.</div>
-        <div class="tip-item"><span class="tip-dot"></span>Arrange local guides for Bulawan Falls and remote spots.</div>
-        <div class="tip-item"><span class="tip-dot"></span>Stock up on supplies in Baler before heading north.</div>
-        <div class="tip-item"><span class="tip-dot"></span>Respect local customs — Casiguran has indigenous communities.</div>
+        <div class="tip-item"><span class="tip-dot"></span><span data-i18n="tip_cash">Bring enough cash — ATMs are very limited in town.</span></div>
+        <div class="tip-item"><span class="tip-dot"></span><span data-i18n="tip_signal">Mobile signal is spotty; download offline maps before leaving.</span></div>
+        <div class="tip-item"><span class="tip-dot"></span><span data-i18n="tip_repellent">Bring insect repellent for forest and waterfall treks.</span></div>
+        <div class="tip-item"><span class="tip-dot"></span><span data-i18n="tip_guides">Arrange local guides for Bulawan Falls and remote spots.</span></div>
+        <div class="tip-item"><span class="tip-dot"></span><span data-i18n="tip_supplies">Stock up on supplies in Baler before heading north.</span></div>
+        <div class="tip-item"><span class="tip-dot"></span><span data-i18n="tip_customs">Respect local customs — Casiguran has indigenous communities.</span></div>
       </div>
     </div>
 
     <div class="info-card fade-in">
-      <div class="card-label">🗺️ Nearby Towns</div>
+      <div class="card-label" data-i18n="card_nearbytowns">🗺️ Nearby Towns</div>
       <div class="nearby-list">
-        <div class="nearby-item"><span class="town">🏖 Baler, Aurora</span><span class="dist">~80 km south</span></div>
-        <div class="nearby-item"><span class="town">🌊 Dipaculao, Aurora</span><span class="dist">~50 km south</span></div>
-        <div class="nearby-item"><span class="town">🌿 Palanan, Isabela</span><span class="dist">~70 km north</span></div>
-        <div class="nearby-item"><span class="town">🏔 San Mariano, Isabela</span><span class="dist">~120 km northwest</span></div>
-        <div class="nearby-item"><span class="town">🌾 Cabanatuan, Nueva Ecija</span><span class="dist">~200 km west</span></div>
+        <div class="nearby-item"><span class="town" data-i18n="town_baler">🏖 Baler, Aurora</span><span class="dist" data-i18n="dist_baler">~80 km south</span></div>
+        <div class="nearby-item"><span class="town" data-i18n="town_dipaculao">🌊 Dipaculao, Aurora</span><span class="dist" data-i18n="dist_dipaculao">~50 km south</span></div>
+        <div class="nearby-item"><span class="town" data-i18n="town_palanan">🌿 Palanan, Isabela</span><span class="dist" data-i18n="dist_palanan">~70 km north</span></div>
+        <div class="nearby-item"><span class="town" data-i18n="town_sanmariano">🏔 San Mariano, Isabela</span><span class="dist" data-i18n="dist_sanmariano">~120 km northwest</span></div>
+        <div class="nearby-item"><span class="town" data-i18n="town_cabanatuan">🌾 Cabanatuan, Nueva Ecija</span><span class="dist" data-i18n="dist_cabanatuan">~200 km west</span></div>
       </div>
     </div>
 
@@ -225,7 +236,7 @@
 <div id="site-toast" role="status">
   <span class="toast-icon">🚫</span>
   <div>
-    <p class="toast-title">You are already on this page.</p>
+    <p class="toast-title" data-i18n="toast_already_title">You are already on this page.</p>
     <p class="toast-sub">Location · Discover Casiguran</p>
   </div>
 </div>
@@ -235,37 +246,39 @@
 <footer>
   <div class="footer-brand">
     <div class="logo-name">Discover Casiguran</div>
-    <p>Casiguran, Aurora Province · Philippines</p>
+    <p data-i18n="footer_tagline">Casiguran, Aurora Province · Philippines</p>
   </div>
   <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="spots.html">Spots</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="location.html">Location</a>
+    <a href="index.html" data-i18n="nav_home">Home</a>
+    <a href="spots.html" data-i18n="nav_spots">Spots</a>
+    <a href="gallery.html" data-i18n="nav_gallery">Gallery</a>
+    <a href="location.html" data-i18n="nav_location">Location</a>
+    <a href="contact.html" data-i18n="nav_contact">Contact</a>
   </div>
-  <p class="footer-copy">© 2026 Discover Casiguran · Aurora's Hidden Gem</p>
+  <p class="footer-copy" data-i18n="footer_copy">© 2026 Discover Casiguran · Aurora's Hidden Gem</p>
 </footer>
 
 <button id="ai-chat-btn" aria-label="Open AI Travel Guide">🤖</button>
 <div id="ai-chat-window" role="dialog" aria-label="AI Travel Guide">
   <div class="chat-header">
     <div class="chat-avatar">🌊</div>
-    <div class="chat-header-info"><h4>Casiguran AI Guide</h4><p>Aurora's Hidden Gem · Ask Anything</p></div>
-    <div class="chat-status"><div class="chat-status-dot"></div>Online</div>
+    <div class="chat-header-info"><h4 data-i18n="chat_title">Casiguran AI Guide</h4><p data-i18n="chat_subtitle">Aurora's Hidden Gem · Ask Anything</p></div>
+    <div class="chat-status"><div class="chat-status-dot"></div><span data-i18n="chat_status">Online</span></div>
   </div>
   <div id="chat-messages"></div>
   <div class="suggestions" id="suggestions">
-    <button class="suggestion-btn">🚗 How to get there?</button>
-    <button class="suggestion-btn">📅 Best time to visit?</button>
-    <button class="suggestion-btn">🏖 Best beaches?</button>
-    <button class="suggestion-btn">💰 Budget tips?</button>
+    <button class="suggestion-btn" data-i18n="chat_suggest_1">🚗 How to get there?</button>
+    <button class="suggestion-btn" data-i18n="chat_suggest_2">📅 Best time to visit?</button>
+    <button class="suggestion-btn" data-i18n="chat_suggest_3">🏖 Best beaches?</button>
+    <button class="suggestion-btn" data-i18n="chat_suggest_4">💰 Budget tips?</button>
   </div>
   <div class="chat-input-row">
-    <input type="text" id="chat-input" placeholder="Ask about Casiguran…" autocomplete="off">
+    <input type="text" id="chat-input" data-i18n-placeholder="chat_placeholder" placeholder="Ask about Casiguran…" autocomplete="off">
     <button id="chat-send" aria-label="Send">➤</button>
   </div>
 </div>
 
+<script src="js/i18n.js"></script>
 <script src="js/common.js"></script>
 <script src="js/location.js"></script>
 </body>

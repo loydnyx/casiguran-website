@@ -17,7 +17,6 @@
 <meta name="description" content="Explore Casiguran's best tourist spots — Casapsapan Beach, Tibu Tidal Pool, Bulawan Falls, Ontok Lighthouse, and more hidden gems in Aurora, Philippines.">
 <link rel="canonical" href="https://casiguran-website.netlify.app/spots.html">
 
-<!-- Open Graph / Facebook & Messenger -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Discover Casiguran">
 <meta property="og:title" content="Tourist Spots – Discover Casiguran">
@@ -25,7 +24,6 @@
 <meta property="og:image" content="https://casiguran-website.netlify.app/image/Casapsapan-Beach.jpg">
 <meta property="og:url" content="https://casiguran-website.netlify.app/spots.html">
 
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Tourist Spots – Discover Casiguran">
 <meta name="twitter:description" content="From pristine Pacific beaches and secret waterfalls to historic lighthouses and colonial churches — Casiguran's treasures are waiting for you.">
@@ -44,48 +42,57 @@
 
 <div id="progress-bar"></div>
 
-<!-- ANNOUNCEMENT BAR -->
 <div id="announce-bar">
-  🌊 Best time to visit: <strong>November – May</strong> (dry season) — Plan your trip today!
-  <a href="location.html">Get directions →</a>
+  <span data-i18n-html="announce_text_html">🌊 Best time to visit: <strong>November – May</strong> (dry season) — Plan your trip today!</span>
+  <a href="location.html" data-i18n="announce_link">Get directions →</a>
   <button id="announce-close" aria-label="Close">✕</button>
 </div>
 
-<!-- NAVBAR -->
 <nav class="navbar" id="navbar">
   <div class="logo">
-    <img src="image/Casiguran-Aurora-Logo.png" alt="Casiguran Logo"
-         onerror="this.style.display='none'">
+    <img src="image/Casiguran-Aurora-Logo.png" alt="Casiguran Logo" onerror="this.style.display='none'">
     <div>
       <span class="logo-text">Discover Casiguran</span>
       <span class="logo-sub">Aurora's Hidden Gem</span>
     </div>
   </div>
   <div class="menu">
-    <a href="index.html">Home</a>
-    <a href="spots.html" class="active">Tourist Spots</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="location.html">Location</a>
+    <a href="index.html" data-i18n="nav_home">Home</a>
+    <a href="spots.html" class="active" data-i18n="nav_spots">Tourist Spots</a>
+    <a href="gallery.html" data-i18n="nav_gallery">Gallery</a>
+    <a href="location.html" data-i18n="nav_location">Location</a>
+    <a href="contact.html" data-i18n="nav_contact">Contact</a>
   </div>
+
+  <div class="lang-toggle lang-toggle-desktop" role="group" aria-label="Language">
+    <button class="lang-opt" data-lang="en">EN</button>
+    <button class="lang-opt" data-lang="tl">FIL</button>
+  </div>
+
   <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
-  <a href="index.html">Home</a>
-  <a href="spots.html" class="active">Tourist Spots</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="location.html">Location</a>
+  <a href="index.html" data-i18n="nav_home">Home</a>
+  <a href="spots.html" class="active" data-i18n="nav_spots">Tourist Spots</a>
+  <a href="gallery.html" data-i18n="nav_gallery">Gallery</a>
+  <a href="location.html" data-i18n="nav_location">Location</a>
+  <a href="contact.html" data-i18n="nav_contact">Contact</a>
+
+  <div class="lang-toggle lang-toggle-mobile" role="group" aria-label="Language">
+    <button class="lang-opt" data-lang="en">EN</button>
+    <button class="lang-opt" data-lang="tl">FIL</button>
+  </div>
 </div>
 
 <!-- PAGE HERO -->
 <div class="page-hero">
   <div class="page-hero-inner">
-    <p class="page-eyebrow">Explore Casiguran</p>
-    <h1>Discover <em>Every Hidden</em><br>Corner of Aurora</h1>
-    <p>From pristine Pacific beaches and secret waterfalls to historic lighthouses and colonial churches — Casiguran's treasures are waiting for you.</p>
+    <p class="page-eyebrow" data-i18n="spots_eyebrow">Explore Casiguran</p>
+    <h1 data-i18n-html="spots_title_html">Discover <em>Every Hidden</em><br>Corner of Aurora</h1>
+    <p data-i18n="spots_desc">From pristine Pacific beaches and secret waterfalls to historic lighthouses and colonial churches — Casiguran's treasures are waiting for you.</p>
   </div>
 </div>
 
@@ -94,19 +101,17 @@
   <div class="search-wrap">
     <div class="search-box">
       <span class="search-icon">🔍</span>
-      <input type="text" id="spotSearch"
-             placeholder="Search spots… (e.g. beach, falls, lighthouse)"
-             autocomplete="off" aria-label="Search tourist spots">
+      <input type="text" id="spotSearch" data-i18n-placeholder="search_placeholder" placeholder="Search spots… (e.g. beach, falls, lighthouse)" autocomplete="off" aria-label="Search tourist spots">
       <button class="search-clear" id="searchClear" aria-label="Clear search">✕</button>
     </div>
     <div class="search-meta">
       <p class="search-count" id="searchCount"></p>
       <div class="filter-pills" id="filterPills">
-        <button class="filter-pill active" data-filter="all">All</button>
-        <button class="filter-pill" data-filter="featured">⭐ Featured</button>
-        <button class="filter-pill" data-filter="beach">🏖 Beaches</button>
-        <button class="filter-pill" data-filter="nature">🌿 Nature</button>
-        <button class="filter-pill" data-filter="landmark">🏛 Landmarks</button>
+        <button class="filter-pill active" data-filter="all" data-i18n="filter_all">All</button>
+        <button class="filter-pill" data-filter="featured" data-i18n="filter_featured">⭐ Featured</button>
+        <button class="filter-pill" data-filter="beach" data-i18n="filter_beach">🏖 Beaches</button>
+        <button class="filter-pill" data-filter="nature" data-i18n="filter_nature">🌿 Nature</button>
+        <button class="filter-pill" data-filter="landmark" data-i18n="filter_landmark">🏛 Landmarks</button>
       </div>
     </div>
   </div>
@@ -115,7 +120,7 @@
 <!-- NO RESULTS -->
 <div class="no-results" id="noResults">
   <div class="no-results-icon">🔍</div>
-  <p>No spots found for "<span id="noResultsQuery"></span>"</p>
+  <p><span data-i18n="noresults_text">No spots found for</span> "<span id="noResultsQuery"></span>"</p>
 </div>
 
 <!-- ═══ MAIN CONTENT ═══ -->
@@ -124,8 +129,8 @@
   <!-- FEATURED -->
   <div class="section-block" id="section-featured" data-category="featured">
     <div class="section-label">
-      <h2>Featured Spots</h2>
-      <span class="section-tag">⭐ Must-Visit</span>
+      <h2 data-i18n="section_featured_title">Featured Spots</h2>
+      <span class="section-tag" data-i18n="section_featured_tag">⭐ Must-Visit</span>
       <div class="section-label-line"></div>
     </div>
     <div class="cards-grid">
@@ -148,8 +153,8 @@ Dining – Enjoy fresh seafood from nearby resorts.">
         </div>
         <div class="card-body">
           <h3>Casapsapan Beach</h3>
-          <p>A peaceful beach with beautiful sunrise views and calm Pacific waters.</p>
-          <span class="card-cta">View Details →</span>
+          <p data-i18n="spot_casapsapan_desc">A peaceful beach with beautiful sunrise views and calm Pacific waters.</p>
+          <span class="card-cta" data-i18n="card_cta">View Details →</span>
         </div>
       </div>
 
@@ -170,8 +175,8 @@ Relaxation – Peaceful coastal environment.">
         </div>
         <div class="card-body">
           <h3>Tibu Tidal Pool</h3>
-          <p>A natural tidal pool perfect for relaxing, snorkeling, and photography.</p>
-          <span class="card-cta">View Details →</span>
+          <p data-i18n="spot_tibu_desc">A natural tidal pool perfect for relaxing, snorkeling, and photography.</p>
+          <span class="card-cta" data-i18n="card_cta">View Details →</span>
         </div>
       </div>
 
@@ -192,8 +197,8 @@ Group Tours – Guided tours available.">
         </div>
         <div class="card-body">
           <h3>Bulawan Falls</h3>
-          <p>A hidden waterfall cascading over golden-hued rocks deep in the forest interior.</p>
-          <span class="card-cta">View Details →</span>
+          <p data-i18n="spot_bulawan_desc">A hidden waterfall cascading over golden-hued rocks deep in the forest interior.</p>
+          <span class="card-cta" data-i18n="card_cta">View Details →</span>
         </div>
       </div>
 
@@ -203,8 +208,8 @@ Group Tours – Guided tours available.">
   <!-- BEACHES -->
   <div class="section-block" id="section-beaches" data-category="beach">
     <div class="section-label">
-      <h2>Beaches</h2>
-      <span class="section-tag">🏖 Coastal</span>
+      <h2 data-i18n="section_beaches_title">Beaches</h2>
+      <span class="section-tag" data-i18n="section_beaches_tag">🏖 Coastal</span>
       <div class="section-label-line"></div>
     </div>
     <div class="cards-grid">
@@ -222,8 +227,8 @@ Photography – Beautiful ocean views.">
         </div>
         <div class="card-body">
           <h3>Dianao Beach</h3>
-          <p>A quiet beach perfect for relaxation and enjoying ocean views.</p>
-          <span class="card-cta">View Details →</span>
+          <p data-i18n="spot_dianao_desc">A quiet beach perfect for relaxation and enjoying ocean views.</p>
+          <span class="card-cta" data-i18n="card_cta">View Details →</span>
         </div>
       </div>
 
@@ -240,8 +245,8 @@ Photography – Hidden gem scenery.">
         </div>
         <div class="card-body">
           <h3>Cuaresma Beach</h3>
-          <p>A peaceful hidden beach known for its natural beauty and serenity.</p>
-          <span class="card-cta">View Details →</span>
+          <p data-i18n="spot_cuaresma_desc">A peaceful hidden beach known for its natural beauty and serenity.</p>
+          <span class="card-cta" data-i18n="card_cta">View Details →</span>
         </div>
       </div>
 
@@ -258,8 +263,8 @@ Camping – Overnight stays allowed.">
         </div>
         <div class="card-body">
           <h3>Motiong Beach</h3>
-          <p>A remote coastal destination ideal for nature lovers and campers.</p>
-          <span class="card-cta">View Details →</span>
+          <p data-i18n="spot_motiong_desc">A remote coastal destination ideal for nature lovers and campers.</p>
+          <span class="card-cta" data-i18n="card_cta">View Details →</span>
         </div>
       </div>
 
@@ -269,8 +274,8 @@ Camping – Overnight stays allowed.">
   <!-- NATURE -->
   <div class="section-block" id="section-nature" data-category="nature">
     <div class="section-label">
-      <h2>Nature Attractions</h2>
-      <span class="section-tag">🌿 Eco</span>
+      <h2 data-i18n="section_nature_title">Nature Attractions</h2>
+      <span class="section-tag" data-i18n="section_nature_tag">🌿 Eco</span>
       <div class="section-label-line"></div>
     </div>
     <div class="cards-grid">
@@ -288,8 +293,8 @@ Photography – Lush green scenery.">
         </div>
         <div class="card-body">
           <h3>Gayusan Falls</h3>
-          <p>A scenic waterfall surrounded by lush tropical greenery.</p>
-          <span class="card-cta">View Details →</span>
+          <p data-i18n="spot_gayusan_desc">A scenic waterfall surrounded by lush tropical greenery.</p>
+          <span class="card-cta" data-i18n="card_cta">View Details →</span>
         </div>
       </div>
 
@@ -306,8 +311,8 @@ Photography – Dam and river views.">
         </div>
         <div class="card-body">
           <h3>Amro River – Lawang Dam</h3>
-          <p>A protected natural area with rich forest and river ecosystems.</p>
-          <span class="card-cta">View Details →</span>
+          <p data-i18n="spot_amro_desc">A protected natural area with rich forest and river ecosystems.</p>
+          <span class="card-cta" data-i18n="card_cta">View Details →</span>
         </div>
       </div>
 
@@ -317,8 +322,8 @@ Photography – Dam and river views.">
   <!-- LANDMARKS -->
   <div class="section-block" id="section-landmarks" data-category="landmark">
     <div class="section-label">
-      <h2>Landmarks</h2>
-      <span class="section-tag">🏛 Heritage</span>
+      <h2 data-i18n="section_landmarks_title">Landmarks</h2>
+      <span class="section-tag" data-i18n="section_landmarks_tag">🏛 Heritage</span>
       <div class="section-label-line"></div>
     </div>
     <div class="cards-grid">
@@ -336,8 +341,8 @@ History Tour – Learn about the lighthouse history.">
         </div>
         <div class="card-body">
           <h3>Ontok Lighthouse</h3>
-          <p>A lighthouse overlooking Casiguran Bay and the vast Pacific Ocean.</p>
-          <span class="card-cta">View Details →</span>
+          <p data-i18n="spot_ontok_desc">A lighthouse overlooking Casiguran Bay and the vast Pacific Ocean.</p>
+          <span class="card-cta" data-i18n="card_cta">View Details →</span>
         </div>
       </div>
 
@@ -354,8 +359,8 @@ Prayer and Reflection – Active parish church.">
         </div>
         <div class="card-body">
           <h3>Nuestra Señora Dela Ermita</h3>
-          <p>A historic church and beloved cultural landmark in Casiguran since 1604.</p>
-          <span class="card-cta">View Details →</span>
+          <p data-i18n="spot_ermita_desc">A historic church and beloved cultural landmark in Casiguran since 1604.</p>
+          <span class="card-cta" data-i18n="card_cta">View Details →</span>
         </div>
       </div>
 
@@ -374,15 +379,15 @@ Prayer and Reflection – Active parish church.">
     <div class="modal-like-row">
       <button class="modal-like-btn" id="modalLikeBtn">
         <span class="heart-icon">🤍</span>
-        <span class="like-label">Add to Favorites</span>
+        <span class="like-label" data-i18n="modal_addfav">Add to Favorites</span>
       </button>
-      <span class="modal-like-count"><span id="modalLikeNum">0</span> people liked this</span>
+      <span class="modal-like-count"><span id="modalLikeNum">0</span> <span data-i18n="modal_peopleliked">people liked this</span></span>
     </div>
 
-    <p class="modal-section-head">Activities</p>
+    <p class="modal-section-head" data-i18n="modal_activities">Activities</p>
     <ul class="modal-activities" id="modalActivities"></ul>
 
-    <p class="modal-section-head">Video</p>
+    <p class="modal-section-head" data-i18n="modal_video">Video</p>
     <div class="video-container" id="videoContainer"></div>
   </div>
 </div>
@@ -391,7 +396,7 @@ Prayer and Reflection – Active parish church.">
 <div id="site-toast" role="status">
   <span class="toast-icon">🚫</span>
   <div>
-    <p class="toast-title">You are already on this page.</p>
+    <p class="toast-title" data-i18n="toast_already_title">You are already on this page.</p>
     <p class="toast-sub">Tourist Spots · Discover Casiguran</p>
   </div>
 </div>
@@ -402,15 +407,16 @@ Prayer and Reflection – Active parish church.">
 <footer>
   <div class="footer-brand">
     <div class="logo-name">Discover Casiguran</div>
-    <p>Casiguran, Aurora Province · Philippines</p>
+    <p data-i18n="footer_tagline">Casiguran, Aurora Province · Philippines</p>
   </div>
   <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="spots.html">Spots</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="location.html">Location</a>
+    <a href="index.html" data-i18n="nav_home">Home</a>
+    <a href="spots.html" data-i18n="nav_spots">Spots</a>
+    <a href="gallery.html" data-i18n="nav_gallery">Gallery</a>
+    <a href="location.html" data-i18n="nav_location">Location</a>
+    <a href="contact.html" data-i18n="nav_contact">Contact</a>
   </div>
-  <p class="footer-copy">© 2026 Discover Casiguran · Aurora's Hidden Gem</p>
+  <p class="footer-copy" data-i18n="footer_copy">© 2026 Discover Casiguran · Aurora's Hidden Gem</p>
 </footer>
 
 <!-- AI CHAT WIDGET -->
@@ -418,29 +424,24 @@ Prayer and Reflection – Active parish church.">
 <div id="ai-chat-window" role="dialog" aria-label="AI Travel Guide">
   <div class="chat-header">
     <div class="chat-avatar">🌊</div>
-    <div class="chat-header-info">
-      <h4>Casiguran AI Guide</h4>
-      <p>Aurora's Hidden Gem · Ask Anything</p>
-    </div>
-    <div class="chat-status"><div class="chat-status-dot"></div>Online</div>
+    <div class="chat-header-info"><h4 data-i18n="chat_title">Casiguran AI Guide</h4><p data-i18n="chat_subtitle">Aurora's Hidden Gem · Ask Anything</p></div>
+    <div class="chat-status"><div class="chat-status-dot"></div><span data-i18n="chat_status">Online</span></div>
   </div>
   <div id="chat-messages"></div>
   <div class="suggestions" id="suggestions">
-    <button class="suggestion-btn">🏖 Best beaches?</button>
-    <button class="suggestion-btn">🚗 How to get there?</button>
-    <button class="suggestion-btn">📅 Best time to visit?</button>
-    <button class="suggestion-btn">🌊 Tibu Tidal Pool?</button>
-    <button class="suggestion-btn">💰 Budget tips?</button>
+    <button class="suggestion-btn" data-i18n="chat_suggest_3">🏖 Best beaches?</button>
+    <button class="suggestion-btn" data-i18n="chat_suggest_1">🚗 How to get there?</button>
+    <button class="suggestion-btn" data-i18n="chat_suggest_2">📅 Best time to visit?</button>
+    <button class="suggestion-btn" data-i18n="chat_suggest_5">🌊 Tibu Tidal Pool?</button>
+    <button class="suggestion-btn" data-i18n="chat_suggest_4">💰 Budget tips?</button>
   </div>
   <div class="chat-input-row">
-    <input type="text" id="chat-input" placeholder="Ask about Casiguran…" autocomplete="off">
+    <input type="text" id="chat-input" data-i18n-placeholder="chat_placeholder" placeholder="Ask about Casiguran…" autocomplete="off">
     <button id="chat-send" aria-label="Send">➤</button>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════
-     JAVASCRIPT
-═══════════════════════════════════════════ -->
+<script src="js/i18n.js"></script>
 <script src="js/common.js"></script>
 
 <script type="module" src="js/spots.js"></script>
