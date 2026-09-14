@@ -37,7 +37,9 @@ if (heroVideo && soundToggle) {
     heroVideo.muted = !heroVideo.muted;
     const isOn = !heroVideo.muted;
     soundToggle.classList.toggle("on", isOn);
-    soundToggle.textContent = isOn ? "🔊" : "🔇";
+    soundToggle.innerHTML = isOn
+      ? '<i class="ph-duotone ph-speaker-high"></i>'
+      : '<i class="ph-duotone ph-speaker-slash"></i>';
     soundToggle.setAttribute("aria-pressed", isOn ? "true" : "false");
   });
 }

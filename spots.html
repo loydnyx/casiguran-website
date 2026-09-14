@@ -32,6 +32,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+<!-- Phosphor Icons (Duotone) -->
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/spots.css">
 <link rel="manifest" href="manifest.json">
@@ -43,9 +47,9 @@
 <div id="progress-bar"></div>
 
 <div id="announce-bar">
-  <span data-i18n-html="announce_text_html">🌊 Best time to visit: <strong>November – May</strong> (dry season) — Plan your trip today!</span>
+  <span data-i18n-html="announce_text_html"><i class="ph-duotone ph-waves"></i> Best time to visit: <strong>November – May</strong> (dry season) — Plan your trip today!</span>
   <a href="location.html" data-i18n="announce_link">Get directions →</a>
-  <button id="announce-close" aria-label="Close">✕</button>
+  <button id="announce-close" aria-label="Close"><i class="ph-duotone ph-x"></i></button>
 </div>
 
 <nav class="navbar" id="navbar">
@@ -100,18 +104,18 @@
 <div class="search-area" id="searchArea">
   <div class="search-wrap">
     <div class="search-box">
-      <span class="search-icon">🔍</span>
+      <span class="search-icon"><i class="ph-duotone ph-magnifying-glass"></i></span>
       <input type="text" id="spotSearch" data-i18n-placeholder="search_placeholder" placeholder="Search spots… (e.g. beach, falls, lighthouse)" autocomplete="off" aria-label="Search tourist spots">
-      <button class="search-clear" id="searchClear" aria-label="Clear search">✕</button>
+      <button class="search-clear" id="searchClear" aria-label="Clear search"><i class="ph-duotone ph-x"></i></button>
     </div>
     <div class="search-meta">
       <p class="search-count" id="searchCount"></p>
       <div class="filter-pills" id="filterPills">
         <button class="filter-pill active" data-filter="all" data-i18n="filter_all">All</button>
-        <button class="filter-pill" data-filter="featured" data-i18n="filter_featured">⭐ Featured</button>
-        <button class="filter-pill" data-filter="beach" data-i18n="filter_beach">🏖 Beaches</button>
-        <button class="filter-pill" data-filter="nature" data-i18n="filter_nature">🌿 Nature</button>
-        <button class="filter-pill" data-filter="landmark" data-i18n="filter_landmark">🏛 Landmarks</button>
+        <button class="filter-pill" data-filter="featured" data-i18n-html="filter_featured"><i class="ph-duotone ph-star"></i> Featured</button>
+        <button class="filter-pill" data-filter="beach" data-i18n-html="filter_beach"><i class="ph-duotone ph-umbrella"></i> Beaches</button>
+        <button class="filter-pill" data-filter="nature" data-i18n-html="filter_nature"><i class="ph-duotone ph-leaf"></i> Nature</button>
+        <button class="filter-pill" data-filter="landmark" data-i18n-html="filter_landmark"><i class="ph-duotone ph-bank"></i> Landmarks</button>
       </div>
     </div>
   </div>
@@ -119,7 +123,7 @@
 
 <!-- NO RESULTS -->
 <div class="no-results" id="noResults">
-  <div class="no-results-icon">🔍</div>
+  <div class="no-results-icon"><i class="ph-duotone ph-magnifying-glass"></i></div>
   <p><span data-i18n="noresults_text">No spots found for</span> "<span id="noResultsQuery"></span>"</p>
 </div>
 
@@ -130,7 +134,7 @@
   <div class="section-block" id="section-featured" data-category="featured">
     <div class="section-label">
       <h2 data-i18n="section_featured_title">Featured Spots</h2>
-      <span class="section-tag" data-i18n="section_featured_tag">⭐ Must-Visit</span>
+      <span class="section-tag" data-i18n-html="section_featured_tag"><i class="ph-duotone ph-star"></i> Must-Visit</span>
       <div class="section-label-line"></div>
     </div>
     <div class="cards-grid">
@@ -149,7 +153,7 @@ Sunbathing – Relax on the long sandy beach.
 Dining – Enjoy fresh seafood from nearby resorts.">
         <div class="card-img">
           <img src="image/Casapsapan-Beach.jpg" alt="Casapsapan Beach">
-          <span class="card-ribbon">🏖 Beach</span>
+          <span class="card-ribbon"><i class="ph-duotone ph-umbrella"></i> Beach</span>
         </div>
         <div class="card-body">
           <h3>Casapsapan Beach</h3>
@@ -171,7 +175,7 @@ Camping – Ideal for day tours.
 Relaxation – Peaceful coastal environment.">
         <div class="card-img">
           <img src="image/Tibu-Tidal.jpg" alt="Tibu Tidal Pool">
-          <span class="card-ribbon">🌊 Tidal Pool</span>
+          <span class="card-ribbon"><i class="ph-duotone ph-waves"></i> Tidal Pool</span>
         </div>
         <div class="card-body">
           <h3>Tibu Tidal Pool</h3>
@@ -193,7 +197,7 @@ Nature Exploration – Quiet natural environment.
 Group Tours – Guided tours available.">
         <div class="card-img">
           <img src="image/Bulawan-Falls.jpg" alt="Bulawan Falls">
-          <span class="card-ribbon">🌿 Waterfall</span>
+          <span class="card-ribbon"><i class="ph-duotone ph-leaf"></i> Waterfall</span>
         </div>
         <div class="card-body">
           <h3>Bulawan Falls</h3>
@@ -209,7 +213,7 @@ Group Tours – Guided tours available.">
   <div class="section-block" id="section-beaches" data-category="beach">
     <div class="section-label">
       <h2 data-i18n="section_beaches_title">Beaches</h2>
-      <span class="section-tag" data-i18n="section_beaches_tag">🏖 Coastal</span>
+      <span class="section-tag" data-i18n-html="section_beaches_tag"><i class="ph-duotone ph-umbrella"></i> Coastal</span>
       <div class="section-label-line"></div>
     </div>
     <div class="cards-grid">
@@ -223,7 +227,7 @@ Sunbathing – Wide sandy shore.
 Photography – Beautiful ocean views.">
         <div class="card-img">
           <img src="image/Dianao-Beach.jpg" alt="Dianao Beach">
-          <span class="card-ribbon">🏖 Beach</span>
+          <span class="card-ribbon"><i class="ph-duotone ph-umbrella"></i> Beach</span>
         </div>
         <div class="card-body">
           <h3>Dianao Beach</h3>
@@ -241,7 +245,7 @@ Picnic – Great for group outings.
 Photography – Hidden gem scenery.">
         <div class="card-img">
           <img src="image/Cuaresma-Beach.png" alt="Cuaresma Beach">
-          <span class="card-ribbon">🏖 Beach</span>
+          <span class="card-ribbon"><i class="ph-duotone ph-umbrella"></i> Beach</span>
         </div>
         <div class="card-body">
           <h3>Cuaresma Beach</h3>
@@ -259,7 +263,7 @@ Nature Walk – Coastal trail exploration.
 Camping – Overnight stays allowed.">
         <div class="card-img">
           <img src="image/Motyong-Beach.png" alt="Motiong Beach">
-          <span class="card-ribbon">🏖 Beach</span>
+          <span class="card-ribbon"><i class="ph-duotone ph-umbrella"></i> Beach</span>
         </div>
         <div class="card-body">
           <h3>Motiong Beach</h3>
@@ -275,7 +279,7 @@ Camping – Overnight stays allowed.">
   <div class="section-block" id="section-nature" data-category="nature">
     <div class="section-label">
       <h2 data-i18n="section_nature_title">Nature Attractions</h2>
-      <span class="section-tag" data-i18n="section_nature_tag">🌿 Eco</span>
+      <span class="section-tag" data-i18n-html="section_nature_tag"><i class="ph-duotone ph-leaf"></i> Eco</span>
       <div class="section-label-line"></div>
     </div>
     <div class="cards-grid">
@@ -289,7 +293,7 @@ Swimming – Natural freshwater pool.
 Photography – Lush green scenery.">
         <div class="card-img">
           <img src="image/Gayusan-Falls.png" alt="Gayusan Falls">
-          <span class="card-ribbon">🌿 Waterfall</span>
+          <span class="card-ribbon"><i class="ph-duotone ph-leaf"></i> Waterfall</span>
         </div>
         <div class="card-body">
           <h3>Gayusan Falls</h3>
@@ -307,7 +311,7 @@ Bird Watching – Rich wildlife area.
 Photography – Dam and river views.">
         <div class="card-img">
           <img src="image/Amro_River-Lawang Dam.png" alt="Amro River">
-          <span class="card-ribbon">🏞 River</span>
+          <span class="card-ribbon"><i class="ph-duotone ph-mountains"></i> River</span>
         </div>
         <div class="card-body">
           <h3>Amro River – Lawang Dam</h3>
@@ -323,7 +327,7 @@ Photography – Dam and river views.">
   <div class="section-block" id="section-landmarks" data-category="landmark">
     <div class="section-label">
       <h2 data-i18n="section_landmarks_title">Landmarks</h2>
-      <span class="section-tag" data-i18n="section_landmarks_tag">🏛 Heritage</span>
+      <span class="section-tag" data-i18n-html="section_landmarks_tag"><i class="ph-duotone ph-bank"></i> Heritage</span>
       <div class="section-label-line"></div>
     </div>
     <div class="cards-grid">
@@ -337,7 +341,7 @@ Photography – Iconic lighthouse shots.
 History Tour – Learn about the lighthouse history.">
         <div class="card-img">
           <img src="image/Ontok-LightHouse.png" alt="Ontok Lighthouse">
-          <span class="card-ribbon">🏛 Landmark</span>
+          <span class="card-ribbon"><i class="ph-duotone ph-bank"></i> Landmark</span>
         </div>
         <div class="card-body">
           <h3>Ontok Lighthouse</h3>
@@ -355,7 +359,7 @@ Photography – Beautiful colonial architecture.
 Prayer and Reflection – Active parish church.">
         <div class="card-img">
           <img src="image/Ermita-Hill.png" alt="Ermita Church">
-          <span class="card-ribbon">⛪ Church</span>
+          <span class="card-ribbon"><i class="ph-duotone ph-church"></i> Church</span>
         </div>
         <div class="card-body">
           <h3>Nuestra Señora Dela Ermita</h3>
@@ -372,13 +376,13 @@ Prayer and Reflection – Active parish church.">
 <!-- ═══ MODAL ═══ -->
 <div id="spotModal" class="modal" role="dialog" aria-label="Spot details">
   <div class="modal-content">
-    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <button class="modal-close" id="modalClose" aria-label="Close"><i class="ph-duotone ph-x"></i></button>
     <h2 id="modalTitle"></h2>
     <p class="modal-desc" id="modalDesc"></p>
 
     <div class="modal-like-row">
       <button class="modal-like-btn" id="modalLikeBtn">
-        <span class="heart-icon">🤍</span>
+        <span class="heart-icon"><i class="ph-duotone ph-heart"></i></span>
         <span class="like-label" data-i18n="modal_addfav">Add to Favorites</span>
       </button>
       <span class="modal-like-count"><span id="modalLikeNum">0</span> <span data-i18n="modal_peopleliked">people liked this</span></span>
@@ -394,14 +398,14 @@ Prayer and Reflection – Active parish church.">
 
 <!-- TOAST -->
 <div id="site-toast" role="status">
-  <span class="toast-icon">🚫</span>
+  <span class="toast-icon"><i class="ph-duotone ph-prohibit"></i></span>
   <div>
     <p class="toast-title" data-i18n="toast_already_title">You are already on this page.</p>
     <p class="toast-sub">Tourist Spots · Discover Casiguran</p>
   </div>
 </div>
 
-<button id="backTop" aria-label="Back to top">↑</button>
+<button id="backTop" aria-label="Back to top"><i class="ph-duotone ph-arrow-up"></i></button>
 
 <!-- FOOTER -->
 <footer>
@@ -420,30 +424,30 @@ Prayer and Reflection – Active parish church.">
 </footer>
 
 <!-- AI CHAT WIDGET -->
-<button id="ai-chat-btn" aria-label="Open AI Travel Guide">🤖</button>
+<button id="ai-chat-btn" aria-label="Open AI Travel Guide"><i class="ph-duotone ph-robot"></i></button>
 <div id="ai-chat-window" role="dialog" aria-label="AI Travel Guide">
   <div class="chat-header">
-    <div class="chat-avatar">🌊</div>
+    <div class="chat-avatar"><i class="ph-duotone ph-waves"></i></div>
     <div class="chat-header-info"><h4 data-i18n="chat_title">Casiguran AI Guide</h4><p data-i18n="chat_subtitle">Aurora's Hidden Gem · Ask Anything</p></div>
     <div class="chat-status"><div class="chat-status-dot"></div><span data-i18n="chat_status">Online</span></div>
   </div>
   <div id="chat-messages"></div>
   <div class="suggestions" id="suggestions">
-    <button class="suggestion-btn" data-i18n="chat_suggest_3">🏖 Best beaches?</button>
-    <button class="suggestion-btn" data-i18n="chat_suggest_1">🚗 How to get there?</button>
-    <button class="suggestion-btn" data-i18n="chat_suggest_2">📅 Best time to visit?</button>
-    <button class="suggestion-btn" data-i18n="chat_suggest_5">🌊 Tibu Tidal Pool?</button>
-    <button class="suggestion-btn" data-i18n="chat_suggest_4">💰 Budget tips?</button>
+    <button class="suggestion-btn" data-i18n-html="chat_suggest_3"><i class="ph-duotone ph-umbrella"></i> Best beaches?</button>
+    <button class="suggestion-btn" data-i18n-html="chat_suggest_1"><i class="ph-duotone ph-car"></i> How to get there?</button>
+    <button class="suggestion-btn" data-i18n-html="chat_suggest_2"><i class="ph-duotone ph-calendar"></i> Best time to visit?</button>
+    <button class="suggestion-btn" data-i18n-html="chat_suggest_5"><i class="ph-duotone ph-waves"></i> Tibu Tidal Pool?</button>
+    <button class="suggestion-btn" data-i18n-html="chat_suggest_4"><i class="ph-duotone ph-coins"></i> Budget tips?</button>
   </div>
   <div class="chat-input-row">
     <input type="text" id="chat-input" data-i18n-placeholder="chat_placeholder" placeholder="Ask about Casiguran…" autocomplete="off">
-    <button id="chat-send" aria-label="Send">➤</button>
+    <button id="chat-send" aria-label="Send"><i class="ph-duotone ph-paper-plane-tilt"></i></button>
   </div>
 </div>
 
 <script src="js/i18n.js"></script>
 <script src="js/common.js"></script>
 
-<script type="module" src="js/spots.js"></script>
+<script src="js/spots.js"></script>
 </body>
 </html>

@@ -90,14 +90,18 @@ async function loadWeather() {
     const res = await fetch("https://api.open-meteo.com/v1/forecast?latitude=16.28&longitude=122.12&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&wind_speed_unit=kmh");
     const data = await res.json();
     const c = data.current, code = c.weather_code;
-    const icons = { 0: "☀️", 1: "🌤️", 2: "⛅", 3: "☁️", 45: "🌫️", 51: "🌦️", 61: "🌧️", 80: "🌦️", 95: "⛈️" };
+    const icons = {
+      0: "ph-sun", 1: "ph-cloud-sun", 2: "ph-cloud", 3: "ph-cloud",
+      45: "ph-cloud-fog", 51: "ph-cloud-rain", 61: "ph-cloud-rain",
+      80: "ph-cloud-rain", 95: "ph-cloud-lightning"
+    };
     const descs = { 0: "Clear sky", 1: "Mainly clear", 2: "Partly cloudy", 3: "Overcast", 45: "Foggy", 51: "Drizzle", 61: "Rainy", 80: "Showers", 95: "Thunderstorm" };
-    const icon = icons[code] || icons[Math.floor(code / 10) * 10] || "🌡️";
+    const iconClass = icons[code] || icons[Math.floor(code / 10) * 10] || "ph-thermometer";
     const desc = descs[code] || descs[Math.floor(code / 10) * 10] || "See forecast";
-    document.getElementById("wTemp").textContent = Math.round(c.temperature_2m) + "°C " + icon;
+    document.getElementById("wTemp").innerHTML = Math.round(c.temperature_2m) + `°C <i class="ph-duotone ${iconClass}"></i>`;
     document.getElementById("wDesc").textContent = desc;
-    document.getElementById("wHumidity").textContent = "💧 " + c.relative_humidity_2m + "%";
-    document.getElementById("wWind").textContent = "💨 " + Math.round(c.wind_speed_10m) + " km/h";
+    document.getElementById("wHumidity").innerHTML = '<i class="ph-duotone ph-drop"></i> ' + c.relative_humidity_2m + "%";
+    document.getElementById("wWind").innerHTML = '<i class="ph-duotone ph-wind"></i> ' + Math.round(c.wind_speed_10m) + " km/h";
   } catch (e) {
     document.getElementById("wDesc").textContent = "Weather unavailable";
   }

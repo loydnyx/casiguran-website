@@ -20,15 +20,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/contact.css">
+
+<!-- Phosphor Icons (Duotone) -->
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
 
 <div id="progress-bar"></div>
 
 <div id="announce-bar">
-  <span data-i18n-html="announce_text_html">🌊 Best time to visit: <strong>November – May</strong> (dry season) — Plan your trip today!</span>
+  <span data-i18n-html="announce_text_html"><i class="ph-duotone ph-waves"></i> Best time to visit: <strong>November – May</strong> (dry season) — Plan your trip today!</span>
   <a href="location.html" data-i18n="announce_link">Get directions →</a>
-  <button id="announce-close" aria-label="Close">✕</button>
+  <button id="announce-close" aria-label="Close"><i class="ph-duotone ph-x"></i></button>
 </div>
 
 <nav class="navbar" id="navbar">
@@ -83,7 +86,7 @@
 
   <!-- FORM CARD -->
   <div class="form-card fade-in">
-    <div class="card-label" data-i18n="form_label">✉️ Send an Inquiry</div>
+    <div class="card-label" data-i18n-html="form_label"><i class="ph-light ph-envelope"></i> Send an Inquiry</div>
 
     <form
       id="inquiryForm"
@@ -137,23 +140,23 @@
   <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="info-card fade-in">
-      <div class="card-label" data-i18n="card_reachus">📍 Reach Us</div>
+      <div class="card-label" data-i18n-html="card_reachus"><i class="ph-light ph-map-pin"></i> Reach Us</div>
       <div class="contact-item">
-        <span class="contact-icon">🏛️</span>
+        <span class="contact-icon"><i class="ph-duotone ph-bank"></i></span>
         <div>
           <h4 data-i18n="reach_office_title">Casiguran Municipal Tourism Office</h4>
           <p data-i18n="reach_office_desc">Municipal Hall, Casiguran, Aurora, Philippines</p>
         </div>
       </div>
       <div class="contact-item">
-        <span class="contact-icon">📘</span>
+        <span class="contact-icon"><i class="ph-duotone ph-facebook-logo"></i></span>
         <div>
           <h4 data-i18n="reach_fb_title">Facebook Page</h4>
           <p><a href="#" target="_blank" rel="noopener">facebook.com/discovercasiguran</a></p>
         </div>
       </div>
       <div class="contact-item">
-        <span class="contact-icon">✉️</span>
+        <span class="contact-icon"><i class="ph-duotone ph-envelope"></i></span>
         <div>
           <h4 data-i18n="reach_email_title">Email</h4>
           <p><a href="mailto:info@discovercasiguran.ph">info@discovercasiguran.ph</a></p>
@@ -162,12 +165,12 @@
     </div>
 
     <div class="info-card fade-in">
-      <div class="card-label" data-i18n="card_response">⏱️ Response Time</div>
+      <div class="card-label" data-i18n-html="card_response"><i class="ph-light ph-clock"></i> Response Time</div>
       <p class="response-note" data-i18n="response_text">We typically reply within 1–2 business days. For urgent same-day questions, our AI Guide (bottom-left chat button) can answer most common questions instantly.</p>
     </div>
 
     <div class="info-card fade-in">
-      <div class="card-label" data-i18n="card_beforemsg">🗺️ Before You Message</div>
+      <div class="card-label" data-i18n-html="card_beforemsg"><i class="ph-light ph-map-trifold"></i> Before You Message</div>
       <div class="tips-list">
         <div class="tip-item"><span class="tip-dot"></span><span data-i18n-html="beforemsg_1_html">Check our <a href="location.html">Location page</a> for directions and travel times.</span></div>
         <div class="tip-item"><span class="tip-dot"></span><span data-i18n-html="beforemsg_2_html">Browse <a href="spots.html">Tourist Spots</a> to help plan your itinerary.</span></div>
@@ -178,7 +181,7 @@
 </div>
 
 <div id="site-toast" role="status">
-  <span class="toast-icon">🚫</span>
+  <span class="toast-icon"><i class="ph-duotone ph-prohibit"></i></span>
   <div>
     <p class="toast-title" data-i18n="toast_already_title">You are already on this page.</p>
     <p class="toast-sub">Contact · Discover Casiguran</p>
@@ -202,23 +205,23 @@
   <p class="footer-copy" data-i18n="footer_copy">© 2026 Discover Casiguran · Aurora's Hidden Gem</p>
 </footer>
 
-<button id="ai-chat-btn" aria-label="Open AI Travel Guide">🤖</button>
+<button id="ai-chat-btn" aria-label="Open AI Travel Guide"><i class="ph-duotone ph-robot"></i></button>
 <div id="ai-chat-window" role="dialog" aria-label="AI Travel Guide">
   <div class="chat-header">
-    <div class="chat-avatar">🌊</div>
+    <div class="chat-avatar"><i class="ph-duotone ph-waves"></i></div>
     <div class="chat-header-info"><h4 data-i18n="chat_title">Casiguran AI Guide</h4><p data-i18n="chat_subtitle">Aurora's Hidden Gem · Ask Anything</p></div>
     <div class="chat-status"><div class="chat-status-dot"></div><span data-i18n="chat_status">Online</span></div>
   </div>
   <div id="chat-messages"></div>
   <div class="suggestions" id="suggestions">
-    <button class="suggestion-btn" data-i18n="chat_suggest_1">🚗 How to get there?</button>
-    <button class="suggestion-btn" data-i18n="chat_suggest_2">📅 Best time to visit?</button>
-    <button class="suggestion-btn" data-i18n="chat_suggest_3">🏖 Best beaches?</button>
-    <button class="suggestion-btn" data-i18n="chat_suggest_4">💰 Budget tips?</button>
+    <button class="suggestion-btn" data-i18n-html="chat_suggest_1"><i class="ph-duotone ph-car"></i> How to get there?</button>
+    <button class="suggestion-btn" data-i18n-html="chat_suggest_2"><i class="ph-duotone ph-calendar"></i> Best time to visit?</button>
+    <button class="suggestion-btn" data-i18n-html="chat_suggest_3"><i class="ph-duotone ph-umbrella"></i> Best beaches?</button>
+    <button class="suggestion-btn" data-i18n-html="chat_suggest_4"><i class="ph-duotone ph-coins"></i> Budget tips?</button>
   </div>
   <div class="chat-input-row">
     <input type="text" id="chat-input" data-i18n-placeholder="chat_placeholder" placeholder="Ask about Casiguran…" autocomplete="off">
-    <button id="chat-send" aria-label="Send">➤</button>
+    <button id="chat-send" aria-label="Send"><i class="ph-duotone ph-paper-plane-tilt"></i></button>
   </div>
 </div>
 

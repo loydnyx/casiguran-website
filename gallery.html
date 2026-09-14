@@ -1,290 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-97SVSD3EPF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-97SVSD3EPF');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-97SVSD3EPF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-97SVSD3EPF');
+  </script>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gallery – Discover Casiguran · Aurora's Hidden Gem</title>
-<meta name="description" content="Browse photos of Casiguran, Aurora's stunning beaches, waterfalls, and landmarks — a visual journey through Aurora's Hidden Gem.">
-<link rel="canonical" href="https://casiguran-website.netlify.app/gallery.html">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery – Discover Casiguran · Aurora's Hidden Gem</title>
+  <meta name="description"
+    content="Browse photos of Casiguran, Aurora's stunning beaches, waterfalls, and landmarks — a visual journey through Aurora's Hidden Gem.">
+  <link rel="canonical" href="https://casiguran-website.netlify.app/gallery.html">
 
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Discover Casiguran">
-<meta property="og:title" content="Gallery – Discover Casiguran">
-<meta property="og:description" content="Explore the untouched beauty of Aurora's hidden gem — through beaches, waterfalls, and nature.">
-<meta property="og:image" content="https://casiguran-website.netlify.app/image/Bulawan-Falls.jpg">
-<meta property="og:url" content="https://casiguran-website.netlify.app/gallery.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Discover Casiguran">
+  <meta property="og:title" content="Gallery – Discover Casiguran">
+  <meta property="og:description"
+    content="Explore the untouched beauty of Aurora's hidden gem — through beaches, waterfalls, and nature.">
+  <meta property="og:image" content="https://casiguran-website.netlify.app/image/Bulawan-Falls.jpg">
+  <meta property="og:url" content="https://casiguran-website.netlify.app/gallery.html">
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Gallery – Discover Casiguran">
-<meta name="twitter:description" content="Explore the untouched beauty of Aurora's hidden gem — through beaches, waterfalls, and nature.">
-<meta name="twitter:image" content="https://casiguran-website.netlify.app/image/Bulawan-Falls.jpg">
-<link rel="icon" type="image/png" sizes="32x32" href="image/logo2.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/gallery.css">
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0e2a1f">
-<link rel="apple-touch-icon" href="image/logo2.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gallery – Discover Casiguran">
+  <meta name="twitter:description"
+    content="Explore the untouched beauty of Aurora's hidden gem — through beaches, waterfalls, and nature.">
+  <meta name="twitter:image" content="https://casiguran-website.netlify.app/image/Bulawan-Falls.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="image/logo2.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Outfit:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/gallery.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0e2a1f">
+  <link rel="apple-touch-icon" href="image/logo2.png">
+
+  <!-- Phosphor Icons (Duotone) -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
+
 <body>
 
-<div id="progress-bar"></div>
+  <div id="progress-bar"></div>
 
-<div id="announce-bar">
-  <span data-i18n-html="announce_text_html">🌊 Best time to visit: <strong>November – May</strong> (dry season) — Plan your trip today!</span>
-  <a href="location.html" data-i18n="announce_link">Get directions →</a>
-  <button id="announce-close" aria-label="Close">✕</button>
-</div>
-
-<nav class="navbar" id="navbar">
-  <div class="logo">
-    <img src="image/Casiguran-Aurora-Logo.png" alt="Logo" onerror="this.style.display='none'">
-    <div>
-      <span class="logo-text">Discover Casiguran</span>
-      <span class="logo-sub">Aurora's Hidden Gem</span>
-    </div>
+  <div id="announce-bar">
+    <span data-i18n-html="announce_text_html"><i class="ph-duotone ph-waves"></i> Best time to visit: <strong>November –
+        May</strong> (dry season) — Plan your trip today!</span>
+    <a href="location.html" data-i18n="announce_link">Get directions →</a>
+    <button id="announce-close" aria-label="Close"><i class="ph-duotone ph-x"></i></button>
   </div>
-  <div class="menu">
+
+  <nav class="navbar" id="navbar">
+    <div class="logo">
+      <img src="image/Casiguran-Aurora-Logo.png" alt="Logo" onerror="this.style.display='none'">
+      <div>
+        <span class="logo-text">Discover Casiguran</span>
+        <span class="logo-sub">Aurora's Hidden Gem</span>
+      </div>
+    </div>
+    <div class="menu">
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="spots.html" data-i18n="nav_spots">Tourist Spots</a>
+      <a href="gallery.html" class="active" data-i18n="nav_gallery">Gallery</a>
+      <a href="location.html" data-i18n="nav_location">Location</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+    </div>
+
+    <div class="lang-toggle lang-toggle-desktop" role="group" aria-label="Language">
+      <button class="lang-opt" data-lang="en">EN</button>
+      <button class="lang-opt" data-lang="tl">FIL</button>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
     <a href="index.html" data-i18n="nav_home">Home</a>
     <a href="spots.html" data-i18n="nav_spots">Tourist Spots</a>
     <a href="gallery.html" class="active" data-i18n="nav_gallery">Gallery</a>
     <a href="location.html" data-i18n="nav_location">Location</a>
     <a href="contact.html" data-i18n="nav_contact">Contact</a>
+
+    <div class="lang-toggle lang-toggle-mobile" role="group" aria-label="Language">
+      <button class="lang-opt" data-lang="en">EN</button>
+      <button class="lang-opt" data-lang="tl">FIL</button>
+    </div>
   </div>
 
-  <div class="lang-toggle lang-toggle-desktop" role="group" aria-label="Language">
-    <button class="lang-opt" data-lang="en">EN</button>
-    <button class="lang-opt" data-lang="tl">FIL</button>
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="page-eyebrow" data-i18n="gal_eyebrow">Visual Journey</p>
+    <h1 data-i18n-html="gal_title_html">Casiguran in <em>Pictures</em></h1>
+    <p data-i18n="gal_desc">Explore the untouched beauty of Aurora's hidden gem — through beaches, waterfalls, and
+      nature.</p>
+    <div class="page-rule"></div>
   </div>
 
-  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<div class="mobile-nav" id="mobileNav">
-  <a href="index.html" data-i18n="nav_home">Home</a>
-  <a href="spots.html" data-i18n="nav_spots">Tourist Spots</a>
-  <a href="gallery.html" class="active" data-i18n="nav_gallery">Gallery</a>
-  <a href="location.html" data-i18n="nav_location">Location</a>
-  <a href="contact.html" data-i18n="nav_contact">Contact</a>
-
-  <div class="lang-toggle lang-toggle-mobile" role="group" aria-label="Language">
-    <button class="lang-opt" data-lang="en">EN</button>
-    <button class="lang-opt" data-lang="tl">FIL</button>
+  <!-- FILTER BAR -->
+  <div class="filter-area">
+    <div class="filter-pills">
+      <button class="filter-btn active" data-filter="all" data-i18n="gal_filter_all">All Photos</button>
+      <button class="filter-btn" data-filter="beach" data-i18n-html="gal_filter_beach"><i
+          class="ph-duotone ph-umbrella"></i> Beaches</button>
+      <button class="filter-btn" data-filter="falls" data-i18n-html="gal_filter_falls"><i
+          class="ph-duotone ph-drop"></i> Waterfalls</button>
+      <button class="filter-btn" data-filter="nature" data-i18n-html="gal_filter_nature"><i
+          class="ph-duotone ph-leaf"></i> Nature</button>
+      <button class="filter-btn" data-filter="landmark" data-i18n-html="gal_filter_landmark"><i
+          class="ph-duotone ph-bank"></i> Landmarks</button>
+    </div>
+    <p class="photo-count" id="photoCount">11 photos</p>
   </div>
-</div>
 
-<!-- PAGE HERO -->
-<div class="page-hero">
-  <p class="page-eyebrow" data-i18n="gal_eyebrow">Visual Journey</p>
-  <h1 data-i18n-html="gal_title_html">Casiguran in <em>Pictures</em></h1>
-  <p data-i18n="gal_desc">Explore the untouched beauty of Aurora's hidden gem — through beaches, waterfalls, and nature.</p>
-  <div class="page-rule"></div>
-</div>
+  <!-- GALLERY -->
+  <div class="gallery-wrap">
+    <div class="gallery-grid" id="galleryGrid">
 
-<!-- FILTER BAR -->
-<div class="filter-area">
-  <div class="filter-pills">
-    <button class="filter-btn active" data-filter="all" data-i18n="gal_filter_all">All Photos</button>
-    <button class="filter-btn" data-filter="beach" data-i18n="gal_filter_beach">🏖 Beaches</button>
-    <button class="filter-btn" data-filter="falls" data-i18n="gal_filter_falls">💧 Waterfalls</button>
-    <button class="filter-btn" data-filter="nature" data-i18n="gal_filter_nature">🌿 Nature</button>
-    <button class="filter-btn" data-filter="landmark" data-i18n="gal_filter_landmark">🏛 Landmarks</button>
+      <div class="gallery-item" data-cat="beach" data-title="Casapsapan Beach" data-caption="Casiguran, Aurora">
+        <img src="image/Casapsapan-Beach.jpg" alt="Casapsapan Beach" loading="lazy">
+        <div class="item-overlay">
+          <div class="item-zoom"><i class="ph-duotone ph-arrows-out"></i></div>
+          <div class="item-title">Casapsapan Beach</div>
+          <span class="item-tag" data-i18n="gal_tag_beach">Beach</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="beach" data-title="Dianao Beach" data-caption="Casiguran, Aurora">
+        <img src="image/Dianao-Beach.jpg" alt="Dianao Beach" loading="lazy">
+        <div class="item-overlay">
+          <div class="item-zoom"><i class="ph-duotone ph-arrows-out"></i></div>
+          <div class="item-title">Dianao Beach</div>
+          <span class="item-tag" data-i18n="gal_tag_beach">Beach</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="beach" data-title="Cuaresma Beach" data-caption="Casiguran, Aurora">
+        <img src="image/Cuaresma-Beach.png" alt="Cuaresma Beach" loading="lazy">
+        <div class="item-overlay">
+          <div class="item-zoom"><i class="ph-duotone ph-arrows-out"></i></div>
+          <div class="item-title">Cuaresma Beach</div>
+          <span class="item-tag" data-i18n="gal_tag_beach">Beach</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="beach" data-title="Motiong Beach" data-caption="Casiguran, Aurora">
+        <img src="image/Motyong-Beach.png" alt="Motiong Beach" loading="lazy">
+        <div class="item-overlay">
+          <div class="item-zoom"><i class="ph-duotone ph-arrows-out"></i></div>
+          <div class="item-title">Motiong Beach</div>
+          <span class="item-tag" data-i18n="gal_tag_beach">Beach</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="nature" data-title="Tibu Tidal Pool" data-caption="Casiguran, Aurora">
+        <img src="image/Tibu-Tidal.jpg" alt="Tibu Tidal Pool" loading="lazy">
+        <div class="item-overlay">
+          <div class="item-zoom"><i class="ph-duotone ph-arrows-out"></i></div>
+          <div class="item-title">Tibu Tidal Pool</div>
+          <span class="item-tag" data-i18n="gal_tag_nature">Nature</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="falls" data-title="Bulawan Falls" data-caption="Casiguran, Aurora">
+        <img src="image/Bulawan-Falls.jpg" alt="Bulawan Falls" loading="lazy">
+        <div class="item-overlay">
+          <div class="item-zoom"><i class="ph-duotone ph-arrows-out"></i></div>
+          <div class="item-title">Bulawan Falls</div>
+          <span class="item-tag" data-i18n="gal_tag_waterfall">Waterfall</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="falls" data-title="Gayusan Falls" data-caption="Casiguran, Aurora">
+        <img src="image/Gayusan-Falls.png" alt="Gayusan Falls" loading="lazy">
+        <div class="item-overlay">
+          <div class="item-zoom"><i class="ph-duotone ph-arrows-out"></i></div>
+          <div class="item-title">Gayusan Falls</div>
+          <span class="item-tag" data-i18n="gal_tag_waterfall">Waterfall</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="nature" data-title="Amro River – Lawang Dam" data-caption="Casiguran, Aurora">
+        <img src="image/Amro_River-Lawang Dam.png" alt="Amro River" loading="lazy">
+        <div class="item-overlay">
+          <div class="item-zoom"><i class="ph-duotone ph-arrows-out"></i></div>
+          <div class="item-title">Amro River – Lawang Dam</div>
+          <span class="item-tag" data-i18n="gal_tag_nature">Nature</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="landmark" data-title="Ontok Lighthouse" data-caption="Casiguran, Aurora">
+        <img src="image/Ontok-LightHouse.png" alt="Ontok Lighthouse" loading="lazy">
+        <div class="item-overlay">
+          <div class="item-zoom"><i class="ph-duotone ph-arrows-out"></i></div>
+          <div class="item-title">Ontok Lighthouse</div>
+          <span class="item-tag" data-i18n="gal_tag_landmark">Landmark</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="landmark" data-title="Nuestra Señora Dela Ermita"
+        data-caption="Casiguran, Aurora">
+        <img src="image/Ermita-Hill.png" alt="Ermita Church" loading="lazy">
+        <div class="item-overlay">
+          <div class="item-zoom"><i class="ph-duotone ph-arrows-out"></i></div>
+          <div class="item-title">Nuestra Señora Dela Ermita</div>
+          <span class="item-tag" data-i18n="gal_tag_landmark">Landmark</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="nature" data-title="Casiguran, Aurora"
+        data-caption="The Hidden Gem of the Pacific">
+        <img src="image/Casiguran-Website.jpg" alt="Casiguran Aurora" loading="lazy"
+          onerror="this.src='image/Casapsapan-Beach.jpg'">
+        <div class="item-overlay">
+          <div class="item-zoom"><i class="ph-duotone ph-arrows-out"></i></div>
+          <div class="item-title">Casiguran, Aurora</div>
+          <span class="item-tag" data-i18n="gal_tag_overview">Overview</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="empty-state" id="emptyState">
+      <div class="empty-icon"><i class="ph-duotone ph-image-broken"></i></div>
+      <p data-i18n="gal_empty_text">No photos in this category yet.</p>
+    </div>
   </div>
-  <p class="photo-count" id="photoCount">11 photos</p>
-</div>
 
-<!-- GALLERY -->
-<div class="gallery-wrap">
-  <div class="gallery-grid" id="galleryGrid">
-
-    <div class="gallery-item" data-cat="beach" data-title="Casapsapan Beach" data-caption="Casiguran, Aurora">
-      <img src="image/Casapsapan-Beach.jpg" alt="Casapsapan Beach" loading="lazy">
-      <div class="item-overlay">
-        <div class="item-zoom">⛶</div>
-        <div class="item-title">Casapsapan Beach</div>
-        <span class="item-tag" data-i18n="gal_tag_beach">Beach</span>
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Photo lightbox">
+    <div class="lb-inner">
+      <button class="lb-close" id="lbClose" aria-label="Close"><i class="ph-duotone ph-x"></i></button>
+      <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+      <button class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button>
+      <div class="lb-img-wrap">
+        <img src="" alt="" id="lbImg">
+      </div>
+      <div class="lb-meta">
+        <div class="lb-meta-left">
+          <h3 id="lbTitle"></h3>
+          <p id="lbCaption"></p>
+        </div>
+        <span class="lb-counter" id="lbCounter"></span>
       </div>
     </div>
-
-    <div class="gallery-item" data-cat="beach" data-title="Dianao Beach" data-caption="Casiguran, Aurora">
-      <img src="image/Dianao-Beach.jpg" alt="Dianao Beach" loading="lazy">
-      <div class="item-overlay">
-        <div class="item-zoom">⛶</div>
-        <div class="item-title">Dianao Beach</div>
-        <span class="item-tag" data-i18n="gal_tag_beach">Beach</span>
-      </div>
-    </div>
-
-    <div class="gallery-item" data-cat="beach" data-title="Cuaresma Beach" data-caption="Casiguran, Aurora">
-      <img src="image/Cuaresma-Beach.png" alt="Cuaresma Beach" loading="lazy">
-      <div class="item-overlay">
-        <div class="item-zoom">⛶</div>
-        <div class="item-title">Cuaresma Beach</div>
-        <span class="item-tag" data-i18n="gal_tag_beach">Beach</span>
-      </div>
-    </div>
-
-    <div class="gallery-item" data-cat="beach" data-title="Motiong Beach" data-caption="Casiguran, Aurora">
-      <img src="image/Motyong-Beach.png" alt="Motiong Beach" loading="lazy">
-      <div class="item-overlay">
-        <div class="item-zoom">⛶</div>
-        <div class="item-title">Motiong Beach</div>
-        <span class="item-tag" data-i18n="gal_tag_beach">Beach</span>
-      </div>
-    </div>
-
-    <div class="gallery-item" data-cat="nature" data-title="Tibu Tidal Pool" data-caption="Casiguran, Aurora">
-      <img src="image/Tibu-Tidal.jpg" alt="Tibu Tidal Pool" loading="lazy">
-      <div class="item-overlay">
-        <div class="item-zoom">⛶</div>
-        <div class="item-title">Tibu Tidal Pool</div>
-        <span class="item-tag" data-i18n="gal_tag_nature">Nature</span>
-      </div>
-    </div>
-
-    <div class="gallery-item" data-cat="falls" data-title="Bulawan Falls" data-caption="Casiguran, Aurora">
-      <img src="image/Bulawan-Falls.jpg" alt="Bulawan Falls" loading="lazy">
-      <div class="item-overlay">
-        <div class="item-zoom">⛶</div>
-        <div class="item-title">Bulawan Falls</div>
-        <span class="item-tag" data-i18n="gal_tag_waterfall">Waterfall</span>
-      </div>
-    </div>
-
-    <div class="gallery-item" data-cat="falls" data-title="Gayusan Falls" data-caption="Casiguran, Aurora">
-      <img src="image/Gayusan-Falls.png" alt="Gayusan Falls" loading="lazy">
-      <div class="item-overlay">
-        <div class="item-zoom">⛶</div>
-        <div class="item-title">Gayusan Falls</div>
-        <span class="item-tag" data-i18n="gal_tag_waterfall">Waterfall</span>
-      </div>
-    </div>
-
-    <div class="gallery-item" data-cat="nature" data-title="Amro River – Lawang Dam" data-caption="Casiguran, Aurora">
-      <img src="image/Amro_River-Lawang Dam.png" alt="Amro River" loading="lazy">
-      <div class="item-overlay">
-        <div class="item-zoom">⛶</div>
-        <div class="item-title">Amro River – Lawang Dam</div>
-        <span class="item-tag" data-i18n="gal_tag_nature">Nature</span>
-      </div>
-    </div>
-
-    <div class="gallery-item" data-cat="landmark" data-title="Ontok Lighthouse" data-caption="Casiguran, Aurora">
-      <img src="image/Ontok-LightHouse.png" alt="Ontok Lighthouse" loading="lazy">
-      <div class="item-overlay">
-        <div class="item-zoom">⛶</div>
-        <div class="item-title">Ontok Lighthouse</div>
-        <span class="item-tag" data-i18n="gal_tag_landmark">Landmark</span>
-      </div>
-    </div>
-
-    <div class="gallery-item" data-cat="landmark" data-title="Nuestra Señora Dela Ermita" data-caption="Casiguran, Aurora">
-      <img src="image/Ermita-Hill.png" alt="Ermita Church" loading="lazy">
-      <div class="item-overlay">
-        <div class="item-zoom">⛶</div>
-        <div class="item-title">Nuestra Señora Dela Ermita</div>
-        <span class="item-tag" data-i18n="gal_tag_landmark">Landmark</span>
-      </div>
-    </div>
-
-    <div class="gallery-item" data-cat="nature" data-title="Casiguran, Aurora" data-caption="The Hidden Gem of the Pacific">
-      <img src="image/Casiguran-Website.jpg" alt="Casiguran Aurora" loading="lazy" onerror="this.src='image/Casapsapan-Beach.jpg'">
-      <div class="item-overlay">
-        <div class="item-zoom">⛶</div>
-        <div class="item-title">Casiguran, Aurora</div>
-        <span class="item-tag" data-i18n="gal_tag_overview">Overview</span>
-      </div>
-    </div>
-
   </div>
 
-  <div class="empty-state" id="emptyState">
-    <div class="empty-icon">🔍</div>
-    <p data-i18n="gal_empty_text">No photos in this category yet.</p>
-  </div>
-</div>
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" role="dialog" aria-label="Photo lightbox">
-  <div class="lb-inner">
-    <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
-    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
-    <button class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button>
-    <div class="lb-img-wrap">
-      <img src="" alt="" id="lbImg">
+  <div id="site-toast" role="status">
+    <span class="toast-icon"><i class="ph-duotone ph-prohibit"></i></span>
+    <div>
+      <p class="toast-title" data-i18n="toast_already_title">You are already on this page.</p>
+      <p class="toast-sub">Gallery · Discover Casiguran</p>
     </div>
-    <div class="lb-meta">
-      <div class="lb-meta-left">
-        <h3 id="lbTitle"></h3>
-        <p id="lbCaption"></p>
+  </div>
+
+  <button id="backTop" aria-label="Back to top">↑</button>
+
+  <footer>
+    <div class="footer-brand">
+      <div class="logo-name">Discover Casiguran</div>
+      <p data-i18n="footer_tagline">Casiguran, Aurora Province · Philippines</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="spots.html" data-i18n="nav_spots">Spots</a>
+      <a href="gallery.html" data-i18n="nav_gallery">Gallery</a>
+      <a href="location.html" data-i18n="nav_location">Location</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+    </div>
+    <p class="footer-copy" data-i18n="footer_copy">© 2026 Discover Casiguran · Aurora's Hidden Gem</p>
+  </footer>
+
+  <!-- AI CHAT -->
+  <button id="ai-chat-btn" aria-label="Open AI Travel Guide"><i class="ph-duotone ph-robot"></i></button>
+  <div id="ai-chat-window" role="dialog" aria-label="AI Travel Guide">
+    <div class="chat-header">
+      <div class="chat-avatar"><i class="ph-duotone ph-waves"></i></div>
+      <div class="chat-header-info">
+        <h4 data-i18n="chat_title">Casiguran AI Guide</h4>
+        <p data-i18n="chat_subtitle">Aurora's Hidden Gem · Ask Anything</p>
       </div>
-      <span class="lb-counter" id="lbCounter"></span>
+      <div class="chat-status">
+        <div class="chat-status-dot"></div><span data-i18n="chat_status">Online</span>
+      </div>
+    </div>
+    <div id="chat-messages"></div>
+    <div class="suggestions" id="suggestions">
+      <button class="suggestion-btn" data-i18n-html="chat_suggest_3"><i class="ph-duotone ph-umbrella"></i> Best
+        beaches?</button>
+      <button class="suggestion-btn" data-i18n-html="chat_suggest_1"><i class="ph-duotone ph-car"></i> How to get
+        there?</button>
+      <button class="suggestion-btn" data-i18n-html="chat_suggest_2"><i class="ph-duotone ph-calendar"></i> Best time to
+        visit?</button>
+      <button class="suggestion-btn" data-i18n-html="chat_suggest_5"><i class="ph-duotone ph-waves"></i> Tibu Tidal
+        Pool?</button>
+      <button class="suggestion-btn" data-i18n-html="chat_suggest_4"><i class="ph-duotone ph-coins"></i> Budget
+        tips?</button>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" data-i18n-placeholder="chat_placeholder" placeholder="Ask about Casiguran…"
+        autocomplete="off">
+      <button id="chat-send" aria-label="Send"><i class="ph-duotone ph-paper-plane-tilt"></i></button>
     </div>
   </div>
-</div>
 
-<div id="site-toast" role="status">
-  <span class="toast-icon">🚫</span>
-  <div>
-    <p class="toast-title" data-i18n="toast_already_title">You are already on this page.</p>
-    <p class="toast-sub">Gallery · Discover Casiguran</p>
-  </div>
-</div>
-
-<button id="backTop" aria-label="Back to top">↑</button>
-
-<footer>
-  <div class="footer-brand">
-    <div class="logo-name">Discover Casiguran</div>
-    <p data-i18n="footer_tagline">Casiguran, Aurora Province · Philippines</p>
-  </div>
-  <div class="footer-links">
-    <a href="index.html" data-i18n="nav_home">Home</a>
-    <a href="spots.html" data-i18n="nav_spots">Spots</a>
-    <a href="gallery.html" data-i18n="nav_gallery">Gallery</a>
-    <a href="location.html" data-i18n="nav_location">Location</a>
-    <a href="contact.html" data-i18n="nav_contact">Contact</a>
-  </div>
-  <p class="footer-copy" data-i18n="footer_copy">© 2026 Discover Casiguran · Aurora's Hidden Gem</p>
-</footer>
-
-<!-- AI CHAT -->
-<button id="ai-chat-btn" aria-label="Open AI Travel Guide">🤖</button>
-<div id="ai-chat-window" role="dialog" aria-label="AI Travel Guide">
-  <div class="chat-header">
-    <div class="chat-avatar">🌊</div>
-    <div class="chat-header-info"><h4 data-i18n="chat_title">Casiguran AI Guide</h4><p data-i18n="chat_subtitle">Aurora's Hidden Gem · Ask Anything</p></div>
-    <div class="chat-status"><div class="chat-status-dot"></div><span data-i18n="chat_status">Online</span></div>
-  </div>
-  <div id="chat-messages"></div>
-  <div class="suggestions" id="suggestions">
-    <button class="suggestion-btn" data-i18n="chat_suggest_3">🏖 Best beaches?</button>
-    <button class="suggestion-btn" data-i18n="chat_suggest_1">🚗 How to get there?</button>
-    <button class="suggestion-btn" data-i18n="chat_suggest_2">📅 Best time to visit?</button>
-    <button class="suggestion-btn" data-i18n="chat_suggest_5">🌊 Tibu Tidal Pool?</button>
-    <button class="suggestion-btn" data-i18n="chat_suggest_4">💰 Budget tips?</button>
-  </div>
-  <div class="chat-input-row">
-    <input type="text" id="chat-input" data-i18n-placeholder="chat_placeholder" placeholder="Ask about Casiguran…" autocomplete="off">
-    <button id="chat-send" aria-label="Send">➤</button>
-  </div>
-</div>
-
-<script src="js/i18n.js"></script>
-<script src="js/common.js"></script>
-<script src="js/gallery.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/gallery.js"></script>
 </body>
+
 </html>

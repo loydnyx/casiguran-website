@@ -1,13 +1,6 @@
-/* ═══════════════════════════════════════════════
-   SW.JS — Service Worker para sa Discover Casiguran
-   Cache-first para sa static assets, network-first
-   para sa HTML pages (para laging updated kapag online,
-   pero may fallback pa rin kapag offline).
-═══════════════════════════════════════════════ */
-
 const CACHE_NAME = "casiguran-cache-v2";
 
-/* Core files na dapat laging naka-cache para gumana ang site offline */
+/* Core files that always in-cache to run the site offline */
 const CORE_ASSETS = [
   "/",
   "/index.html",
@@ -30,7 +23,6 @@ const CORE_ASSETS = [
   "/image/Casiguran-Aurora-Logo.png",
 ];
 
-/* ── INSTALL: i-cache ang core assets ─────────── */
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(CORE_ASSETS))
@@ -55,14 +47,12 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   const req = event.request;
 
-  /* Huwag i-cache ang Firebase, Google Maps, Gemini API, o external calls */
   if (!req.url.startsWith(self.location.origin)) return;
   if (req.method !== "GET") return;
 
   const isHTML = req.headers.get("accept")?.includes("text/html");
 
   if (isHTML) {
-    /* Network-first: subukan munang kumuha online, fallback sa cache */
     event.respondWith(
       fetch(req)
         .then((res) => {
@@ -73,7 +63,6 @@ self.addEventListener("fetch", (event) => {
         .catch(() => caches.match(req).then((cached) => cached || caches.match("/index.html")))
     );
   } else {
-    /* Cache-first para sa static assets (mas mabilis, tipid sa data) */
     event.respondWith(
       caches.match(req).then((cached) => {
         if (cached) return cached;

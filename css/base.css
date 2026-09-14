@@ -34,11 +34,19 @@
 
 /* ═══ RESET & BASE ═══ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+html { scroll-behavior: smooth; text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
 body { font-family: var(--font-body); overflow-x: hidden; line-height: 1.6; }
 img { display: block; width: 100%; object-fit: cover; }
 a { text-decoration: none; color: inherit; }
 button { font-family: inherit; cursor: pointer; }
+
+/* ═══ PHOSPHOR ICONS — default sizing/behavior ═══ */
+i[class^="ph-"], i[class*=" ph-"] {
+  font-size: 1.15em;
+  vertical-align: -0.15em;
+  line-height: 1;
+}
+:root { --ph-duotone-secondary-opacity: 0.35; }
 
 /* ═══ SCROLL PROGRESS ═══ */
 #progress-bar {
@@ -258,7 +266,7 @@ button { font-family: inherit; cursor: pointer; }
   min-width: 260px; max-width: calc(100vw - 40px);
 }
 #site-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-.toast-icon { font-size: .9rem; flex-shrink: 0; }
+.toast-icon { font-size: .9rem; flex-shrink: 0; color: var(--c-sand); }
 .toast-title { font-size: .8rem; font-weight: 600; color: var(--c-sand); }
 .toast-sub { font-size: .68rem; color: rgba(200,147,58,.8); margin-top: 1px; }
 
@@ -284,36 +292,64 @@ footer {
 
 /* ═══ PWA INSTALL BANNER ═══ */
 #pwa-install-banner {
-  position: fixed; left: 50%; bottom: 20px; z-index: 950;
-  transform: translateX(-50%) translateY(120%);
-  display: flex; align-items: center; gap: 12px;
-  background: var(--c-forest); border: 1px solid rgba(200,147,58,.4);
-  border-radius: 50px; padding: 10px 10px 10px 18px;
-  box-shadow: 0 12px 40px rgba(0,0,0,.45);
-  max-width: calc(100vw - 32px);
-  transition: transform .4s var(--ease-out);
+  position: fixed; z-index: 950;
+  transition: transform .4s var(--ease-out), opacity .3s;
 }
-#pwa-install-banner.show { transform: translateX(-50%) translateY(0); }
-.pwa-install-text { font-size: .8rem; color: var(--c-sand); white-space: nowrap; }
-.pwa-install-text strong { color: var(--c-gold-lt); }
+
+#pwa-install-banner.pwa-desktop {
+  left: 50%; bottom: 24px;
+  transform: translateX(-50%) translateY(130%);
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(7,25,18,.92); border: 1px solid rgba(200,147,58,.35);
+  border-radius: 30px; padding: 10px 14px 10px 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.4);
+  width: max-content; max-width: calc(100vw - 32px);
+}
+#pwa-install-banner.pwa-desktop.show { transform: translateX(-50%) translateY(0); }
+.pwa-install-text-desktop {
+  font-size: .8rem; color: rgba(242,232,214,.75); white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.pwa-install-link {
+  color: var(--c-gold-lt); text-decoration: underline;
+  text-underline-offset: 2px; font-weight: 700; transition: color .2s;
+}
+.pwa-install-link:hover { color: var(--c-gold); }
+
+#pwa-install-banner.pwa-mobile {
+  left: 50%; top: 12px; bottom: auto;
+  transform: translateX(-50%) translateY(-140%);
+  width: calc(100vw - 24px); max-width: 380px;
+  display: flex; align-items: center; gap: 10px;
+  background: var(--c-forest); border: 1px solid rgba(200,147,58,.4);
+  border-radius: 16px; padding: 12px 12px 12px 14px;
+  box-shadow: 0 14px 36px rgba(0,0,0,.5);
+}
+#pwa-install-banner.pwa-mobile.show { transform: translateX(-50%) translateY(0); }
+.pwa-mobile-icon { font-size: 1.3rem; color: var(--c-gold); flex-shrink: 0; }
+.pwa-mobile-body { flex: 1; min-width: 0; }
+.pwa-mobile-title { font-size: .8rem; font-weight: 700; color: var(--c-sand); line-height: 1.3; }
+.pwa-mobile-sub { font-size: .68rem; color: rgba(242,232,214,.5); margin-top: 2px; line-height: 1.3; }
+
+/* ── SHARED ── */
 .pwa-install-btn {
-  flex-shrink: 0; padding: 8px 18px; border-radius: 30px;
+  flex-shrink: 0; padding: 7px 16px; border-radius: 30px;
   background: var(--c-gold); color: var(--c-forest);
-  font-size: .78rem; font-weight: 700; letter-spacing: .03em;
+  font-size: .74rem; font-weight: 700; letter-spacing: .02em;
   border: none; white-space: nowrap;
   transition: transform .2s var(--ease-spring);
 }
 .pwa-install-btn:hover { transform: scale(1.05); }
 .pwa-install-close {
-  flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+  flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%;
   background: rgba(255,255,255,.08); border: none;
-  color: rgba(242,232,214,.5); font-size: .8rem; line-height: 1;
+  color: rgba(242,232,214,.5); font-size: .7rem; line-height: 1;
   display: flex; align-items: center; justify-content: center;
   transition: background .2s, color .2s;
 }
 .pwa-install-close:hover { background: rgba(255,255,255,.16); color: var(--c-sand); }
 @media (max-width: 480px) {
-  .pwa-install-text { font-size: .74rem; }
+  .pwa-install-text-desktop { font-size: .74rem; }
 }
 
 /* ═══════════════════════════════════════════════
@@ -324,11 +360,19 @@ footer {
   width: 54px; height: 54px; border-radius: 50%;
   background: linear-gradient(135deg, var(--c-forest), #1a5c4a);
   border: 1.5px solid rgba(200,147,58,.4);
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  cursor: grab; display: flex; align-items: center; justify-content: center;
   font-size: 1.3rem;
   box-shadow: 0 6px 24px rgba(0,0,0,.4);
   transition: transform .2s var(--ease-spring), box-shadow .2s;
   animation: chatPulse 3s ease infinite;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+#ai-chat-btn.dragging {
+  cursor: grabbing;
+  transition: none;
+  animation: none;
 }
 #ai-chat-btn:hover { transform: scale(1.1); box-shadow: 0 10px 32px rgba(0,0,0,.5); }
 #ai-chat-btn.open { animation: none; transform: rotate(180deg); }
@@ -344,6 +388,7 @@ footer {
 }
 #ai-chat-btn:hover::before { opacity: 1; }
 #ai-chat-btn.open::before { display: none; }
+#ai-chat-btn.dragging::before { display: none; }
 @keyframes chatPulse {
   0%,100% { box-shadow: 0 6px 24px rgba(0,0,0,.4), 0 0 0 0 rgba(200,147,58,.5); }
   70%      { box-shadow: 0 6px 24px rgba(0,0,0,.4), 0 0 0 12px rgba(200,147,58,0); }

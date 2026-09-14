@@ -29,27 +29,27 @@ async function fbLikeDelta(id, delta) {
 
 function spawnHeart(x, y) {
   const h = document.createElement("span");
-  h.className = "heart-particle"; h.textContent = "❤️";
+  h.className = "heart-particle"; h.innerHTML = '<i class="ph-fill ph-heart"></i>';
   h.style.left = (x - 12) + "px"; h.style.top = (y - 12) + "px";
   document.body.appendChild(h);
   setTimeout(() => h.remove(), 900);
 }
 
-/* Build like buttons — badges start at ♡ 0, Firebase onValue updates them live */
+/* Build like buttons — badges start sa 0, Firebase onValue updates them live */
 document.querySelectorAll(".spot-card[data-id]").forEach(card => {
   const id = card.getAttribute("data-id");
 
   const badge = document.createElement("span");
   badge.className     = "like-badge zero";
   badge.dataset.badge = id;
-  badge.textContent   = "♡ 0";
+  badge.innerHTML      = '<i class="ph-duotone ph-heart"></i> 0';
   card.querySelector(".card-img").appendChild(badge);
 
   const btn = document.createElement("button");
   btn.className    = "like-btn" + (isLiked(id) ? " liked" : "");
   btn.dataset.like = id;
   btn.title        = "Add to Favorites";
-  btn.textContent  = isLiked(id) ? "❤️" : "🤍";
+  btn.innerHTML    = isLiked(id) ? '<i class="ph-fill ph-heart"></i>' : '<i class="ph-duotone ph-heart"></i>';
   card.querySelector(".card-img").appendChild(btn);
 
   btn.addEventListener("click", async function (e) {
@@ -59,7 +59,7 @@ document.querySelectorAll(".spot-card[data-id]").forEach(card => {
     if (nowLiked) mine[id] = true; else delete mine[id];
     saveMine(mine);
 
-    btn.textContent = nowLiked ? "❤️" : "🤍";
+    btn.innerHTML = nowLiked ? '<i class="ph-fill ph-heart"></i>' : '<i class="ph-duotone ph-heart"></i>';
     btn.classList.toggle("liked", nowLiked);
     btn.classList.add("pop");
     btn.addEventListener("animationend", () => btn.classList.remove("pop"), { once: true });
@@ -71,7 +71,7 @@ document.querySelectorAll(".spot-card[data-id]").forEach(card => {
 
   onValue(ref(db, "likes/" + id), snap => {
     const count = Math.max(0, snap.val() || 0);
-    badge.textContent = count === 0 ? "\u2661 0" : "\u2665 " + count;
+    badge.innerHTML = '<i class="ph-duotone ph-heart"></i> ' + count;
     badge.classList.toggle("zero", count === 0);
     const modalNum = document.getElementById("modalLikeNum");
     if (modalNum && window._currentModalId === id) modalNum.textContent = count;
@@ -161,8 +161,14 @@ let currentModalId = null;
 function syncModal(id) {
   if (currentModalId !== id) return;
   const liked = isLiked(id);
-  modalLikeBtn.querySelector(".heart-icon").textContent = liked ? "❤️" : "🤍";
-  modalLikeBtn.querySelector(".like-label").textContent = liked ? "Favorited!" : "Add to Favorites";
+  const lang = (typeof window.i18nGetLang === "function") ? window.i18nGetLang() : "en";
+  const dict = (window.translations && window.translations[lang]) ? window.translations[lang] : {};
+  modalLikeBtn.querySelector(".heart-icon").innerHTML = liked
+    ? '<i class="ph-fill ph-heart"></i>'
+    : '<i class="ph-duotone ph-heart"></i>';
+  modalLikeBtn.querySelector(".like-label").textContent = liked
+    ? (dict.modal_favorited || "Favorited!")
+    : (dict.modal_addfav || "Add to Favorites");
   modalLikeBtn.classList.toggle("liked", liked);
   const badgeEl = document.querySelector("[data-badge='" + id + "']");
   if (badgeEl && modalLikeNum) {
@@ -223,7 +229,7 @@ modalLikeBtn.addEventListener("click", async function (e) {
 
   const cardBtn = document.querySelector(`.like-btn[data-like="${currentModalId}"]`);
   if (cardBtn) {
-    cardBtn.textContent = nowLiked ? "❤️" : "🤍";
+    cardBtn.innerHTML = nowLiked ? '<i class="ph-fill ph-heart"></i>' : '<i class="ph-duotone ph-heart"></i>';
     cardBtn.classList.toggle("liked", nowLiked);
     cardBtn.classList.add("pop");
     cardBtn.addEventListener("animationend", () => cardBtn.classList.remove("pop"), { once: true });

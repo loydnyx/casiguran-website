@@ -58,32 +58,109 @@ document.querySelectorAll("nav a.active").forEach(activeLink => {
 
 /* ── AI CHAT WIDGET ────────────────────────── */
 (function () {
-  const chatBtn = document.getElementById("ai-chat-btn");
+  const chatBtn    = document.getElementById("ai-chat-btn");
   const chatWindow = document.getElementById("ai-chat-window");
-  const chatInput = document.getElementById("chat-input");
-  const chatSend = document.getElementById("chat-send");
+  const chatInput  = document.getElementById("chat-input");
+  const chatSend   = document.getElementById("chat-send");
   const messagesEl = document.getElementById("chat-messages");
-  const suggestEl = document.getElementById("suggestions");
+  const suggestEl  = document.getElementById("suggestions");
   if (!chatBtn) return;
 
   let isOpen = false, isLoading = false, greeted = false;
   let history = [];
   let lastSendTime = 0;
-  const SEND_COOLDOWN_MS = 2000; // 2 seconds every message, stopped faster na spam-clicking
+  const SEND_COOLDOWN_MS = 2000; // 2 segundo bawat message, pumipigil sa mabilis na spam-clicking
 
   chatBtn.addEventListener("click", () => {
+    if (chatBtn.dataset.wasDragged === "1") {
+      chatBtn.dataset.wasDragged = "0";
+      return;
+    }
     isOpen = !isOpen;
     chatBtn.classList.toggle("open", isOpen);
+    if (isOpen) positionChatWindowNearButton();
     chatWindow.classList.toggle("open", isOpen);
     if (isOpen && !greeted) {
       greeted = true;
-      setTimeout(() => addBotMsg("Mabuhay! 👋 I'm your AI guide for **Casiguran, Aurora** — Aurora's Hidden Gem.\n\nAsk me anything about tourist spots, how to get here, best time to visit, activities, and more!"), 420);
+      setTimeout(() => addBotMsg("Mabuhay! I'm your AI guide for **Casiguran, Aurora** — Aurora's Hidden Gem.\n\nAsk me anything about tourist spots, how to get here, best time to visit, activities, and more!"), 420);
     }
     if (isOpen) setTimeout(() => chatInput.focus(), 360);
   });
 
+  function positionChatWindowNearButton() {
+    const btnRect = chatBtn.getBoundingClientRect();
+    const winW = chatWindow.offsetWidth || 360;
+    const winH = chatWindow.offsetHeight || 500;
+    const gap = 14;
+    const margin = 10;
+
+    let left = btnRect.left;
+    let top = btnRect.top - winH - gap;
+
+    if (top < margin) {
+      top = btnRect.bottom + gap;
+    }
+
+    left = Math.max(margin, Math.min(window.innerWidth - winW - margin, left));
+    top = Math.max(margin, Math.min(window.innerHeight - winH - margin, top));
+
+    chatWindow.style.left = left + "px";
+    chatWindow.style.top = top + "px";
+    chatWindow.style.bottom = "auto";
+  }
+
+  (function makeDraggable(el) {
+    const DRAG_THRESHOLD = 6;
+    let startX = 0, startY = 0, startLeft = 0, startTop = 0;
+    let dragging = false, moved = false;
+
+    el.addEventListener("pointerdown", (e) => {
+      dragging = true; moved = false;
+      const rect = el.getBoundingClientRect();
+      startX = e.clientX; startY = e.clientY;
+      startLeft = rect.left; startTop = rect.top;
+      el.setPointerCapture(e.pointerId);
+    });
+
+    el.addEventListener("pointermove", (e) => {
+      if (!dragging) return;
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+
+      if (!moved && Math.hypot(dx, dy) > DRAG_THRESHOLD) {
+        moved = true;
+        el.classList.add("dragging");
+        el.style.right = "auto";
+        el.style.bottom = "auto";
+      }
+      if (!moved) return;
+
+      const btnW = el.offsetWidth, btnH = el.offsetHeight;
+      let newLeft = startLeft + dx;
+      let newTop = startTop + dy;
+    
+      newLeft = Math.max(4, Math.min(window.innerWidth - btnW - 4, newLeft));
+      newTop = Math.max(4, Math.min(window.innerHeight - btnH - 4, newTop));
+      el.style.left = newLeft + "px";
+      el.style.top = newTop + "px";
+    });
+
+    function endDrag(e) {
+      if (!dragging) return;
+      dragging = false;
+      if (moved) {
+        el.classList.remove("dragging");
+        el.dataset.wasDragged = "1";
+      }
+      try { el.releasePointerCapture(e.pointerId); } catch (_) {}
+    }
+
+    el.addEventListener("pointerup", endDrag);
+    el.addEventListener("pointercancel", endDrag);
+  })(chatBtn);
+
   suggestEl.querySelectorAll(".suggestion-btn").forEach(btn => {
-    btn.addEventListener("click", () => sendMsg(btn.textContent.trim().replace(/^[\S]+\s/, "")));
+    btn.addEventListener("click", () => sendMsg(btn.textContent.trim()));
   });
 
   chatSend.addEventListener("click", () => sendMsg());
@@ -95,7 +172,7 @@ document.querySelectorAll("nav a.active").forEach(activeLink => {
 
     const now = Date.now();
     if (now - lastSendTime < SEND_COOLDOWN_MS) {
-      return; // masyadong mabilis, i-ignore ang extra send
+      return;
     }
     lastSendTime = now;
 
@@ -108,37 +185,35 @@ document.querySelectorAll("nav a.active").forEach(activeLink => {
   function addUserMsg(text) {
     const d = document.createElement("div");
     d.className = "msg user";
-    d.innerHTML = `<div class="msg-icon">👤</div><div class="msg-bubble">${esc(text)}</div>`;
+    d.innerHTML = `<div class="msg-icon"><i class="ph-duotone ph-user"></i></div><div class="msg-bubble">${esc(text)}</div>`;
     messagesEl.appendChild(d); scrollDown();
   }
 
   function addBotMsg(text) {
     const d = document.createElement("div");
     d.className = "msg bot";
-    d.innerHTML = `<div class="msg-icon">🌊</div><div class="msg-bubble">${fmt(text)}</div>`;
+    d.innerHTML = `<div class="msg-icon"><i class="ph-duotone ph-waves"></i></div><div class="msg-bubble">${fmt(text)}</div>`;
     messagesEl.appendChild(d); scrollDown();
   }
 
   function showTyping() {
     const d = document.createElement("div");
     d.className = "msg bot"; d.id = "typing";
-    d.innerHTML = `<div class="msg-icon">🌊</div><div class="msg-bubble typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>`;
+    d.innerHTML = `<div class="msg-icon"><i class="ph-duotone ph-waves"></i></div><div class="msg-bubble typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>`;
     messagesEl.appendChild(d); scrollDown();
   }
 
   function removeTyping() { const t = document.getElementById("typing"); if (t) t.remove(); }
   function scrollDown() { messagesEl.scrollTop = messagesEl.scrollHeight; }
   function fmt(t) { return esc(t).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\n/g, "<br>"); }
-  function esc(t) { return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  function esc(t) { return t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 
   async function askAI(question) {
     isLoading = true; chatSend.disabled = true;
     history.push({ role: "user", content: question });
     showTyping();
     try {
-      /* NOTE: calls the Netlify Function at /.netlify/functions/chat
-         (see netlify/functions/chat.js — the custom "path" override
-         that broke this endpoint has been removed there). */
+    
       const res = await fetch("/.netlify/functions/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -158,22 +233,25 @@ document.querySelectorAll("nav a.active").forEach(activeLink => {
       }
     } catch {
       removeTyping();
-      addBotMsg("Oops! May problema sa koneksyon. Pakisubukan ulit. 🙏");
+      addBotMsg("Oops! May problema sa koneksyon. Pakisubukan ulit.");
     }
     isLoading = false; chatSend.disabled = false; chatInput.focus();
   }
 })();
 
-/* ── SERVICE WORKER (PWA / offline support) ────── */
-if ("serviceWorker" in navigator) {
+const isLocalDev = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+
+if ("serviceWorker" in navigator && !isLocalDev) {
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("/sw.js")
       .catch(err => console.warn("Service worker registration failed:", err));
   });
+} else if (isLocalDev && "serviceWorker" in navigator) {
+  navigator.serviceWorker.getRegistrations().then(regs => {
+    regs.forEach(reg => reg.unregister());
+  });
 }
 
-/* ── CUSTOM PWA INSTALL BANNER ──────────────────
-   It's no longer relying on Chrome’s automatic install prompt. Instead, it uses a custom “Install App” banner that appears only when the site is actually installable. */
 (function () {
   const alreadyInstalled =
     window.matchMedia("(display-mode: standalone)").matches ||
@@ -197,17 +275,36 @@ if ("serviceWorker" in navigator) {
   function showInstallBanner() {
     if (document.getElementById("pwa-install-banner")) return;
 
+    const isDesktop = window.matchMedia("(min-width: 681px)").matches;
     const banner = document.createElement("div");
     banner.id = "pwa-install-banner";
-    banner.innerHTML = `
-      <span class="pwa-install-text">📲 I-install ang <strong>Discover Casiguran</strong> bilang app</span>
-      <button class="pwa-install-btn" id="pwaInstallBtn">Install</button>
-      <button class="pwa-install-close" id="pwaInstallClose" aria-label="Isara">✕</button>
-    `;
+    banner.className = isDesktop ? "pwa-desktop" : "pwa-mobile";
+
+    if (isDesktop) {
+      banner.innerHTML = `
+        <span class="pwa-install-text-desktop">
+          <i class="ph-duotone ph-device-mobile"></i>
+          <a href="#" id="pwaInstallTrigger" class="pwa-install-link">Install</a> Discover Casiguran
+        </span>
+        <button class="pwa-install-close" id="pwaInstallClose" aria-label="Isara"><i class="ph-duotone ph-x"></i></button>
+      `;
+    } else {
+      banner.innerHTML = `
+        <div class="pwa-mobile-icon"><i class="ph-duotone ph-bell"></i></div>
+        <div class="pwa-mobile-body">
+          <p class="pwa-mobile-title">Install Discover Casiguran</p>
+          <p class="pwa-mobile-sub">I-add sa home screen para sa mabilisang access.</p>
+        </div>
+        <button class="pwa-install-btn" id="pwaInstallTrigger">Install</button>
+        <button class="pwa-install-close" id="pwaInstallClose" aria-label="Isara"><i class="ph-duotone ph-x"></i></button>
+      `;
+    }
+
     document.body.appendChild(banner);
     requestAnimationFrame(() => banner.classList.add("show"));
 
-    document.getElementById("pwaInstallBtn").addEventListener("click", async () => {
+    document.getElementById("pwaInstallTrigger").addEventListener("click", async (e) => {
+      if (isDesktop) e.preventDefault();
       if (!deferredPrompt) return;
       deferredPrompt.prompt();
       await deferredPrompt.userChoice;
@@ -227,4 +324,19 @@ if ("serviceWorker" in navigator) {
     banner.classList.remove("show");
     setTimeout(() => banner.remove(), 400);
   }
+
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      const banner = document.getElementById("pwa-install-banner");
+      if (!banner || !deferredPrompt) return;
+      const shouldBeDesktop = window.matchMedia("(min-width: 681px)").matches;
+      const isCurrentlyDesktop = banner.classList.contains("pwa-desktop");
+      if (shouldBeDesktop !== isCurrentlyDesktop) {
+        banner.remove();
+        showInstallBanner();
+      }
+    }, 250);
+  });
 })();
