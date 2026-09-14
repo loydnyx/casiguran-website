@@ -503,7 +503,6 @@ function i18nApply(lang) {
     if (dict[key] !== undefined) el.placeholder = dict[key];
   });
 
-  // Idagdag ito para sa Toast para hindi mawala ang icon at mag-update ang text
   const toastTitle = document.querySelector("#site-toast .toast-title, #site-toast p:first-of-type, #site-toast [data-i18n='toast_already_title']");
   if (toastTitle && dict["toast_already_title"]) {
     toastTitle.textContent = dict["toast_already_title"];
